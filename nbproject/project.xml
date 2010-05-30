@@ -91,10 +91,6 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.spring-context-support-2.5.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
                     <file>${file.reference.spring-core-2.5.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
