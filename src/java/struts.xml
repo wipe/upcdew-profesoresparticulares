@@ -6,8 +6,20 @@
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
 
-    <package name="person" extends="struts-default">
+<!--    <global-results>
+            <result name="error">/index.jsp</result>
+    </global-results>-->
 
+<!--    <global-exception-mappings>
+            <exception-mapping result="error"
+                    exception="java.lang.Throwable" />
+            <exception-mapping result="error"
+                    exception="java.lang.Runnable" />
+            <exception-mapping result="error"
+                    exception="java.lang.NullPointerException" />
+    </global-exception-mappings>-->
+
+   <package name="base" extends="struts-default">
         <action name="list" class="personAction" method="execute">
             <result>pages/list.jsp</result>
             <result name="input">pages/list.jsp</result>
@@ -21,6 +33,11 @@
         <action name="save" class="personAction" method="save">
             <result>pages/list.jsp</result>
             <result name="input">pages/list.jsp</result>
+        </action>
+    
+        <action name="login" class="loginAction" method="login">
+            <result name="success">pages/contacto.html</result>
+            <result name="error">index.jsp</result>
         </action>
     </package>
 
