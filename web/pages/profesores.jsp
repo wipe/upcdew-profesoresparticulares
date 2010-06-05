@@ -3,7 +3,7 @@
     Created on : 04/06/2010, 11:35:53 AM
     Author     : lkina
 --%>
-
+<%@ page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,7 +28,7 @@
 	<div id="menu">
 		<ul>
 			<li class="profesores.jsp" ><a href="../profesores.jsp">Inicio Profesores</a></li>
-			<li><a href="registroHorario.jsp">Registro de Horario</a></li>
+			<li><a href="<%=request.getContextPath()%>/registroHorario.action">Registro de Horario</a></li>
 			<li ><a href="ConsultaHorarioProfesor.jsp">Consulta Horario</a></li>
 			<li><a href="perfilProfesor.jsp">Perfil</a></li>
 
@@ -51,6 +51,8 @@
       </table>
 	</div>
 	</div>
+           
+
 	<!-- end #page -->
 </div>
 	<!-- end #footer -->

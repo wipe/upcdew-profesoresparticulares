@@ -28,17 +28,17 @@ public class PersonServiceImpl implements PersonService {
     public void save(Person person) {
         if (person.getId() == null) {
             // new
-            em.persist(person);
+            em.persist(person);//insert
         } else {
             // update
-            em.merge(person);
+            em.merge(person);//update
         }
     }
 
     public void remove(int id) {
         Person person = find(id);
         if (person != null) {
-            em.remove(person);
+            em.remove(person);//delete
         }
     }
 

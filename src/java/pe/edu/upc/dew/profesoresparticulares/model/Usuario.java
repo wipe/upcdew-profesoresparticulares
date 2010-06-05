@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
+import org.hibernate.annotations.NaturalId;
 
 /**
  *
@@ -24,11 +25,12 @@ public class Usuario {
     private String nomUsuario;
     private String apePaterno;
     private String apeMaterno;
+    @NaturalId
     private String mail;
     private String tipoUsuario;
     private String password;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fechaNacimiento;
+    private Date fecNacimiento;
 
     public Integer getCodUsuario() {
         return codUsuario;
@@ -54,12 +56,12 @@ public class Usuario {
         this.apePaterno = apePaterno;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public Date getFecNacimiento() {
+        return fecNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFecNacimiento(Date fecNacimiento) {
+        this.fecNacimiento = fecNacimiento;
     }
 
     public String getMail() {

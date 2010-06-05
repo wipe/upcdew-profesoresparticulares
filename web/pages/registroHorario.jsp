@@ -3,7 +3,7 @@
     Created on : 04/06/2010, 11:39:31 AM
     Author     : lkina
 --%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,7 +15,15 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Profesores Particulares</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" /></head>
-<body>
+<script type="text/javascript">
+    function borrar() {
+        alert("sdjfkhdfk");
+        var form = document.forms[0];
+        form.action = "<%=request.getContextPath()%>/borrarHorario.action";
+        document.getElementsByTagName("form")[0].submit();
+    }
+</script>
+<body><form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action" method="post">
 
 	<div id="header">
 		<div id="logo">
@@ -144,7 +152,9 @@
         <tr>
           <td>&nbsp;</td>
           <td><input name="submit" type="submit" id="search-submit" value="Grabar" />
-          <input name="submit2" type="submit" id="submit" value="Borrar" /></td>
+              <input name="submit2" type="button" id="submit" value="Borrar" 
+                     onclick="borrar()" /></td>
+          
           <td>&nbsp;</td>
         </tr>
         <tr>
@@ -158,5 +168,6 @@
 	<!-- end #page -->
 </div>
 	<!-- end #footer -->
+    </form>
 </body>
 </html>

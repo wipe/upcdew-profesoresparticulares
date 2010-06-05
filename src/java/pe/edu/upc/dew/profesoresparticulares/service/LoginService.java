@@ -5,10 +5,14 @@
 
 package pe.edu.upc.dew.profesoresparticulares.service;
 
+import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
+
 /**
  *
  * @author synopsis
  */
 public interface LoginService {
+
+    public Usuario getusuario(Integer id);
 
 }

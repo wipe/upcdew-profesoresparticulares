@@ -39,6 +39,19 @@
             <result name="success">pages/profesores.jsp</result>
             <result name="error">index.jsp</result>
         </action>
+
+        <action name="registroHorario">
+            <result>pages/registroHorario.jsp</result>
+        </action>
+
+        <action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
+            <result name="success">pages/profesores.jsp</result>
+        </action>
+
+        <action name="borrarHorario" class="registrarHorarioAction" method="borrarHorario">
+            <result name="success">pages/contacto.html</result>
+        </action>
+
     </package>
 
 </struts>
