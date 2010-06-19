@@ -43,36 +43,47 @@ public class LoginServiceImpl implements LoginService{
 
         Map menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaAlumno.action");
+        menu.put("descripcion", "Inicio Alumno");
         menus.add(menu);
         menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaRealizarReservasAlumno.action");
+        menu.put("descripcion", "Realizar Reservas");
         menus.add(menu);
         menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaConsultaReservasAlumno.action");
+        menu.put("descripcion", "Reservas Realizadas");
         menus.add(menu);
         menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaPerfilAlumno.action");
+        menu.put("descripcion", "Perfil");
         menus.add(menu);
+
         menu = new HashMap();
         menu.put("tipo", "profesor");
         menu.put("url", "PaginaProfesor.action");
         menu.put("descripcion", "Inicio Profesores");
         menus.add(menu);
+
         menu = new HashMap();
         menu.put("tipo", "profesor");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaRegistroHorarioProfesor.action");
+        menu.put("descripcion", "Registro de Horario");
+        menus.add(menu);
+
+        menu = new HashMap();
+        menu.put("tipo", "profesor");
+        menu.put("url", "PaginaConsultaHorarioProfesor.action");
+        menu.put("descripcion", "Consulta Horario");
+
         menus.add(menu);
         menu = new HashMap();
         menu.put("tipo", "profesor");
-        menu.put("url", "xxx.action");
-        menus.add(menu);
-        menu = new HashMap();
-        menu.put("tipo", "profesor");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaPerfilProfesor.action");
+        menu.put("descripcion", "Perfil");
         menus.add(menu);
     }
 
@@ -80,9 +91,8 @@ public class LoginServiceImpl implements LoginService{
         Usuario user = null;
         for (Usuario usuario : usuarios) {            
             if(usuario.getMail().equals(mail)){
-                System.out.println("mail q Llega"+mail);
                 if(password.equals(usuario.getPassword())){
-                    return user;
+                    return usuario;
                 }
             }
         }
