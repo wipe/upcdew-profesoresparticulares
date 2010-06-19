@@ -18,7 +18,6 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-
                         <li class="alumnos.jsp" ><a href="<%=request.getContextPath()%>/PaginaAlumno.action">Inicio Alumno</a></li>
 			<li><a href="<%=request.getContextPath()%>/PaginaRealizarReservasAlumno.action">Realizar Reservas</a></li>
 			<li ><a href="<%=request.getContextPath()%>/PaginaConsultaReservasAlumno.action">Reservas Realizadas</a></li>
@@ -65,7 +64,7 @@
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td><label>
-            <input type="submit" name="Submit" value="Enviar">
+                  <input type="submit" name="Submit" value="Enviar" > </input>
           </label></td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
