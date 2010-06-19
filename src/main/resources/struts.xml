@@ -29,6 +29,7 @@
             <result name="success">pages/contacto.html</result>
         </action>
 
+
         <!--inicio perfil Profesor-->
         <action name="PaginaProfesor">
             <result>pages/profesores.jsp</result>
@@ -61,6 +62,10 @@
 
         <action name="PaginaPerfilAlumno">
             <result>pages/perfilAlumno.jsp</result>
+        </action>
+
+          <action name="PaginaAlumnoClasificarProfesor">
+            <result>pages/AlumnoClasificacionProfesor.jsp</result>
         </action>
 
     </package>
