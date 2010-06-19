@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.util.*"%>
+<%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,11 +29,9 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-			<li><a href="../index.html">Inicio</a></li>
-			<li><a href="#">Profesores</a></li>
-			<li class="current_page_item"><a href="#">Horario</a></li>
-			<li><a href="#">Sobre nosotros</a></li>
-			<li><a href="#">Contacto</a></li>
+                    <%for(int i=0; i<menus.size(); i++){%>
+			<li class="" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>
+                    <% }%>
 		</ul>
 	</div>
 	<!-- end #menu -->

@@ -3,8 +3,9 @@
     Created on : 15/06/2010, 08:04:25 PM
     Author     : u201000225
 --%>
-
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="java.util.*"%>
+<%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,14 +25,9 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-                    <s:iterator id="menu" value="MENU">
-                        <s:property></s:property>
-                    </s:iterator>
-                         <li ><a href="<%=request.getContextPath()%>/PaginaProfesor.action">Inicio Profesores</a></li>
-			<li class="profesores.jsp"><a href="<%=request.getContextPath()%>/PaginaRegistroHorarioProfesor.action">Registro de Horario</a></li>
-			<li class="current_page_item" ><a href="<%=request.getContextPath()%>/PaginaConsultaHorarioProfesor.action">Consulta Horario</a></li>
-			<li><a href="<%=request.getContextPath()%>/PaginaPerfilProfesor.action">Perfil</a></li>
-
+                    <%for(int i=0; i<menus.size(); i++){%>
+			<li class="" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>
+                    <% }%>
 		</ul>
 	</div>
 	<!-- end #menu -->
