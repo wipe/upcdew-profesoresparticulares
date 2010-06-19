@@ -5,7 +5,7 @@
 <struts>
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
-    
+
     <package name="base" extends="struts-default">
         <action name="list" class="personAction" method="execute">
             <result>pages/list.jsp</result>
@@ -37,6 +37,40 @@
 
         <action name="borrarHorario" class="registrarHorarioAction" method="borrarHorario">
             <result name="success">pages/contacto.html</result>
+        </action>
+
+        <!--inicio perfil Profesor-->
+        <action name="PaginaProfesor">
+            <result>pages/profesores.jsp</result>
+        </action>
+
+        <action name="PaginaRegistroHorarioProfesor">
+            <result>pages/registroHorario.jsp</result>
+        </action>
+
+        <action name="PaginaConsultaHorarioProfesor">
+            <result>pages/ConsultaHorarioProfesor.jsp</result>
+        </action>
+
+        <action name="PaginaPerfilProfesor">
+            <result>pages/perfilProfesor.jsp</result>
+        </action>
+        <!--///////////////////////////////////////////////////-->
+        <!--inicio perfil Alumno-->
+        <action name="PaginaAlumno">
+            <result>pages/alumnos.jsp</result>
+        </action>
+
+        <action name="PaginaRealizarReservasAlumno">
+            <result>pages/realizarReservas.jsp</result>
+        </action>
+
+        <action name="PaginaConsultaReservasAlumno">
+            <result>pages/alumnoConsultaReservas.jsp</result>
+        </action>
+
+        <action name="PaginaPerfilAlumno">
+            <result>pages/perfilAlumno.jsp</result>
         </action>
 
     </package>
