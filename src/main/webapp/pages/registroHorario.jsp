@@ -7,9 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<%@ page import="java.util.*"%>
+<%@ page import="java.util.*, pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
-
+<%List<Curso> cursos = (List<Curso>)request.getAttribute("CURSOS");%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -53,6 +53,12 @@
           <td width="177">&nbsp;</td>
         </tr>
         <tr>
+          <td height="35"><strong>Curso</strong></td>
+          <td><select name="curso">
+                  <%for(int i=0; i<cursos.size(); i++){%>
+                    <option value="<%=((Curso)cursos.get(i)).getNomCurso()%>"><%=((Curso)cursos.get(i)).getNomCurso()%></option>
+                  <% }%>
+              </select></td>
           <td height="35"><strong>Fecha</strong></td>
           <td><table width="200" border="0">
             <tr>
