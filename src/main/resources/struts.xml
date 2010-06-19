@@ -6,7 +6,7 @@
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
 
-    <package name="base" extends="struts-default">        
+    <package name="base" extends="struts-default">
 
         <action name="login" class="loginAction" method="login">
             <result name="success">pages/profesores.jsp</result>
