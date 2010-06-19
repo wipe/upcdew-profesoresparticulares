@@ -13,6 +13,10 @@
             <result name="error">index.jsp</result>
         </action>
 
+        <action name="Salir" class="loginAction" method="salir">
+            <result name="error">index.jsp</result>
+        </action>
+
         <action name="registroHorario">
             <result>pages/registroHorario.jsp</result>
         </action>
