@@ -14,7 +14,7 @@
         </action>
 
         <action name="Salir" class="loginAction" method="salir">
-            <result name="error">index.jsp</result>
+            <result name="success">index.jsp</result>
         </action>
 
         <action name="registroHorario">
