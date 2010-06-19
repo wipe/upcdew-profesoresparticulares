@@ -28,7 +28,7 @@
 	<div id="menu">
 		<ul>
                     <%for(int i=0; i<menus.size(); i++){%>
-			<li class="profesores.jsp" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>			
+			<li class="" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>			
                     <% }%>
 		</ul>
 	</div>
