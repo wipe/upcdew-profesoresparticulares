@@ -49,11 +49,11 @@
                                         <table width="200" border="0">
                                             <tr>
                                                 <td width="38">Login</td>
-                                                <td width="146"><input type="text" name="usuario" id="usuario" value="" /></td>
+                                                <td width="146"><input type="text" name="usuario" id="usuario"  /></td>
                                             </tr>
                                             <tr>
                                                 <td>Password</td>
-                                                <td><input type="password" name="password" id="password" value="" /></td>
+                                                <td><input type="password" name="password" id="password"  /></td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp;</td>

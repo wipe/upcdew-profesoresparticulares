@@ -30,6 +30,7 @@ public class LoginServiceImpl implements LoginService{
         user.setPassword("123");
         user.setTipoUsuario("alumno");
         usuarios.add(user);
+        
         user = new  Usuario();
         user.setCodUsuario(2);
         user.setMail("profesor@upc.com");
@@ -58,7 +59,8 @@ public class LoginServiceImpl implements LoginService{
         menus.add(menu);
         menu = new HashMap();
         menu.put("tipo", "profesor");
-        menu.put("url", "xxx.action");
+        menu.put("url", "PaginaProfesor.action");
+        menu.put("descripcion", "Inicio Profesores");
         menus.add(menu);
         menu = new HashMap();
         menu.put("tipo", "profesor");
@@ -76,9 +78,10 @@ public class LoginServiceImpl implements LoginService{
 
     public Usuario getUsuario(String mail, String password) {
         Usuario user = null;
-        for (Usuario usuario : usuarios) {
+        for (Usuario usuario : usuarios) {            
             if(usuario.getMail().equals(mail)){
-                if(password.equals(usuario.getMail())){
+                System.out.println("mail q Llega"+mail);
+                if(password.equals(usuario.getPassword())){
                     return user;
                 }
             }

@@ -26,12 +26,10 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-
                         <li class="alumnos.jsp" ><a href="<%=request.getContextPath()%>/PaginaAlumno.action">Inicio Alumno</a></li>
 			<li><a href="<%=request.getContextPath()%>/PaginaRealizarReservasAlumno.action">Realizar Reservas</a></li>
 			<li ><a href="<%=request.getContextPath()%>/PaginaConsultaReservasAlumno.action">Reservas Realizadas</a></li>
 			<li><a href="<%=request.getContextPath()%>/PaginaPerfilAlumno.action">Perfil</a></li>
-
 		</ul>
 	</div>
 	<!-- end #menu -->

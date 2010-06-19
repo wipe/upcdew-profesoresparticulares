@@ -3,12 +3,12 @@
     Created on : 04/06/2010, 11:35:53 AM
     Author     : lkina
 --%>
-<%@ page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-
-<html >
+<%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+<html>
 <head>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -27,11 +27,12 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-			<li class="profesores.jsp" ><a href="<%=request.getContextPath()%>/PaginaProfesor.action">Inicio Profesores</a></li>
+                    <%for(int i=0; i<menus.size(); i++){%>
+			<li class="profesores.jsp" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>
 			<li><a href="<%=request.getContextPath()%>/PaginaRegistroHorarioProfesor.action">Registro de Horario</a></li>
 			<li ><a href="<%=request.getContextPath()%>/PaginaConsultaHorarioProfesor.action">Consulta Horario</a></li>
 			<li><a href="<%=request.getContextPath()%>/PaginaPerfilProfesor.action">Perfil</a></li>
-
+                    <% }%>
 		</ul>
 	</div>
 	<!-- end #menu -->
