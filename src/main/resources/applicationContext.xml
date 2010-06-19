@@ -11,8 +11,8 @@
 <!--    <bean
         class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />-->
 
-<!--    <bean id="personService" class="quickstart.service.PersonServiceImpl" />
-    <bean id="loginService" class="quickstart.service.PersonServiceImpl" />  -->
+    <bean id="registrarHorarioService" class="pe.edu.upc.dew.profesoresparticulares.service.RegistrarHorarioServiceImpl" />
+    <bean id="loginService" class="pe.edu.upc.dew.profesoresparticulares.service.LoginServiceImpl" />
 
 <!--    <bean id="entityManagerFactory"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -41,19 +41,14 @@
 
 <!--    <tx:annotation-driven transaction-manager="transactionManager" />-->
 
-    <bean id="personAction" scope="prototype"
-        class="quickstart.action.PersonAction">
-        <constructor-arg ref="personService" />
-    </bean>
-
     <bean id="loginAction" scope="prototype"
         class="pe.edu.upc.dew.profesoresparticulares.action.LoginAction">
-        <!--<constructor-arg ref="loginService" />-->
+        <constructor-arg ref="loginService" />
     </bean>
 
     <bean id="registrarHorarioAction" scope="prototype"
         class="pe.edu.upc.dew.profesoresparticulares.action.RegistrarHorarioAction">
-       <!-- <constructor-arg ref="registroHorarioService" />-->
+        <constructor-arg ref="registrarHorarioService" />
     </bean>
 
 </beans>
