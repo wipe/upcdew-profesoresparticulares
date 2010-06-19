@@ -4,9 +4,7 @@
     Author     : u201000225
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,7 +24,9 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-
+                    <s:iterator id="menu" value="MENU">
+                        <s:property></s:property>
+                    </s:iterator>
                          <li ><a href="<%=request.getContextPath()%>/PaginaProfesor.action">Inicio Profesores</a></li>
 			<li class="profesores.jsp"><a href="<%=request.getContextPath()%>/PaginaRegistroHorarioProfesor.action">Registro de Horario</a></li>
 			<li class="current_page_item" ><a href="<%=request.getContextPath()%>/PaginaConsultaHorarioProfesor.action">Consulta Horario</a></li>
