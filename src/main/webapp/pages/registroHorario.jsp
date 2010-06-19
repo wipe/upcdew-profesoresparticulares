@@ -58,7 +58,10 @@
                   <%for(int i=0; i<cursos.size(); i++){%>
                     <option value="<%=((Curso)cursos.get(i)).getNomCurso()%>"><%=((Curso)cursos.get(i)).getNomCurso()%></option>
                   <% }%>
-              </select></td>
+              </select>
+          </td>
+          </tr>
+          <tr>
           <td height="35"><strong>Fecha</strong></td>
           <td><table width="200" border="0">
             <tr>
