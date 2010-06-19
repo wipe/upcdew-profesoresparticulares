@@ -28,10 +28,7 @@
 	<div id="menu">
 		<ul>
                     <%for(int i=0; i<menus.size(); i++){%>
-			<li class="profesores.jsp" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>
-			<li><a href="<%=request.getContextPath()%>/PaginaRegistroHorarioProfesor.action">Registro de Horario</a></li>
-			<li ><a href="<%=request.getContextPath()%>/PaginaConsultaHorarioProfesor.action">Consulta Horario</a></li>
-			<li><a href="<%=request.getContextPath()%>/PaginaPerfilProfesor.action">Perfil</a></li>
+			<li class="profesores.jsp" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>			
                     <% }%>
 		</ul>
 	</div>
