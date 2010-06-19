@@ -61,6 +61,11 @@ public class LoginServiceImpl implements LoginService{
         menu.put("url", "PaginaPerfilAlumno.action");
         menu.put("descripcion", "Perfil");
         menus.add(menu);
+        menu = new HashMap();
+        menu.put("tipo", "alumno");
+        menu.put("url", "Salir.action");
+        menu.put("descripcion", "Salir");
+        menus.add(menu);
 
         menu = new HashMap();
         menu.put("tipo", "profesor");
@@ -85,6 +90,13 @@ public class LoginServiceImpl implements LoginService{
         menu.put("url", "PaginaPerfilProfesor.action");
         menu.put("descripcion", "Perfil");
         menus.add(menu);
+
+        menu = new HashMap();
+        menu.put("tipo", "profesor");
+        menu.put("url", "Salir.action");
+        menu.put("descripcion", "Salir");
+        menus.add(menu);
+
     }
 
     public Usuario getUsuario(String mail, String password) {
