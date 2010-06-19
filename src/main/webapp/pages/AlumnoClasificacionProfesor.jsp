@@ -1,5 +1,7 @@
 
 
+<%@ page import="java.util.*"%>
+<%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -18,11 +20,9 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-                        <li class="alumnos.jsp" ><a href="<%=request.getContextPath()%>/PaginaAlumno.action">Inicio Alumno</a></li>
-			<li><a href="<%=request.getContextPath()%>/PaginaRealizarReservasAlumno.action">Realizar Reservas</a></li>
-			<li ><a href="<%=request.getContextPath()%>/PaginaConsultaReservasAlumno.action">Reservas Realizadas</a></li>
-			<li><a href="<%=request.getContextPath()%>/PaginaPerfilAlumno.action">Perfil</a></li>
-			<li><a href="<%=request.getContextPath()%>/PaginaPerfilAlumno.action">Calsificacion Profesores</a></li>
+                    <%for(int i=0; i<menus.size(); i++){%>
+			<li class="" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>
+                    <% }%>
 
 		</ul>
 	</div>
