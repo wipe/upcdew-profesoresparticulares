@@ -18,11 +18,18 @@
                 -->
 
         <!-- Java Transactions -->
-        <dependency>
+        <!--<dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
             <version>1.0.1B</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.springframework</groupId>
