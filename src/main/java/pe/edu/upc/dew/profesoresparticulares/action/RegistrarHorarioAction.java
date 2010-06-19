@@ -5,11 +5,19 @@
 
 package pe.edu.upc.dew.profesoresparticulares.action;
 
+import pe.edu.upc.dew.profesoresparticulares.service.RegistrarHorarioService;
+
 /**
  *
  * @author synopsis
  */
 public class RegistrarHorarioAction extends BaseAction{
+
+    private RegistrarHorarioService service;
+
+    public RegistrarHorarioAction(RegistrarHorarioService registrarHorarioService) {
+        this.service = registrarHorarioService;
+    }
 
     public String registrarHorario(){
         System.out.println("ntra a grabar");

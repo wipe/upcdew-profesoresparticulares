@@ -21,12 +21,20 @@ public abstract class BaseAction extends ActionSupport {
         return ServletActionContext.getRequest();
     }
 
-    public HttpServletResponse getResponse() {
-        return ServletActionContext.getResponse();
+    public void setRequest(String name, Object value){
+        getRequest().setAttribute(name, value);
     }
 
     public HttpSession getSession() {
             return ServletActionContext.getRequest().getSession();
+    }
+
+    public void setSession(String name, Object value){
+        getSession().setAttribute(name, value);
+    }
+
+    public HttpServletResponse getResponse() {
+        return ServletActionContext.getResponse();
     }
 
 }
