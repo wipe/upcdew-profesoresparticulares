@@ -66,7 +66,7 @@
           <td><table width="200" border="0">
             <tr>
               <td>Dia</td>
-              <td><select name="select" size="1">
+              <td><select name="dia" size="1">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -100,7 +100,7 @@
                   <option value="31">31</option>
               </select></td>
               <td>Mes</td>
-              <td><select name="select2">
+              <td><select name="mes">
                   <option value="Enero">Enero</option>
                   <option value="Febrero">Febrero</option>
                   <option value="Marzo">Marzo</option>
@@ -115,7 +115,7 @@
                   <option value="Diciembre">Diciembre</option>
               </select></td>
               <td>Año:</td>
-              <td><select name="select3">
+              <td><select name="anio">
                   <option value="2010">2010</option>
                   <option value="2011">2011</option>
                   <option value="2013">2012</option>
@@ -150,13 +150,13 @@
         <tr>
           <td height="17"><strong>Lugar</strong></td>
           <td><label>
-            <input type="text" name="textfield" />
+            <input type="text" name="lugar" />
           </label></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><strong>costo</strong></td>
-          <td><input type="text" name="txtCosto" /></td>
+          <td><strong>Costo</strong></td>
+          <td><input type="text" name="costo" /></td>
           <td>&nbsp;</td>
         </tr>
         <tr>

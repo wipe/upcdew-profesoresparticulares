@@ -13,5 +13,6 @@ public class Constantes {
 
     public static final String USUARIO = "USUARIO";
     public static final String MENU = "MENU";
+    public static final String CURSOS = "CURSOS";
 
 }

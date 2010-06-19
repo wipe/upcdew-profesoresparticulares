@@ -17,10 +17,10 @@
             <result name="success">index.jsp</result>
         </action>
 
-        <action name="registroHorario">
-            <result>pages/registroHorario.jsp</result>
+        <action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
+            <result name="success">pages/registroHorario.jsp</result>
         </action>
-
+      
         <action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
             <result name="success">pages/profesores.jsp</result>
         </action>
@@ -35,8 +35,8 @@
             <result>pages/profesores.jsp</result>
         </action>
 
-        <action name="PaginaRegistroHorarioProfesor">
-            <result>pages/registroHorario.jsp</result>
+        <action name="PaginaRegistroHorarioProfesor" class="registrarHorarioAction" method="inicio">
+            <result name="success">pages/registroHorario.jsp</result>
         </action>
 
         <action name="PaginaConsultaHorarioProfesor">
