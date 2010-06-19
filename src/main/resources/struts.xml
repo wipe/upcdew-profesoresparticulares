@@ -6,21 +6,7 @@
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
 
-    <package name="base" extends="struts-default">
-        <action name="list" class="personAction" method="execute">
-            <result>pages/list.jsp</result>
-            <result name="input">pages/list.jsp</result>
-        </action>
-
-        <action name="remove" class="personAction" method="remove">
-            <result>pages/list.jsp</result>
-            <result name="input">pages/list.jsp</result>
-        </action>
-
-        <action name="save" class="personAction" method="save">
-            <result>pages/list.jsp</result>
-            <result name="input">pages/list.jsp</result>
-        </action>
+    <package name="base" extends="struts-default">        
 
         <action name="login" class="loginAction" method="login">
             <result name="success">pages/profesores.jsp</result>
