@@ -36,6 +36,11 @@ public class LoginAction extends BaseAction{
         return SUCCESS;
     }
 
+    public String salir(){
+        getSession().invalidate();
+        return SUCCESS;
+    }
+
     public String getPassword() {
         return password;
     }
