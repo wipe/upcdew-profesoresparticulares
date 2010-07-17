@@ -15,7 +15,7 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
  */
 public interface LoginService {
 
-    public Usuario getUsuario(String mail, String password);
     public List<Map> getMenu(String tipoUsuario);
+     public Usuario validaUsuario(String mail, String password);
 
 }
