@@ -106,7 +106,6 @@ public class LoginServiceImpl implements LoginService{
     System.out.println("Obtiene usuario__________________________");
      System.out.println(user.getMail());
 
-
         if (user != null){
              return user;
         }
