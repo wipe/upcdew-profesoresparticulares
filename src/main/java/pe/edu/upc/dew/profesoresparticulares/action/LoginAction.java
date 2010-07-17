@@ -26,12 +26,14 @@ public class LoginAction extends BaseAction{
 
     public String login(){
         System.out.println("inicio");
-        Usuario user = service.getUsuario(usuario, password);
+        Usuario user = service.validaUsuario(usuario, password);
+
         
         if(user!=null){
             setSession(Constantes.USUARIO, user);
             System.out.println(user.getPassword());
             setSession(Constantes.MENU, service.getMenu(user.getTipoUsuario()));
+             System.out.println(service.getMenu(user.getTipoUsuario()).size()+"");
         }
         return SUCCESS;
     }
