@@ -18,6 +18,7 @@ public class Horario {
     private Integer codAlumno;
     private Date fecha;
     private Integer codHora;
+    private String lugar;
 
     public Integer getCodAlumno() {
         return codAlumno;
@@ -57,6 +58,14 @@ public class Horario {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
 
