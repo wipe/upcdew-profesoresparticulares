@@ -17,30 +17,14 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
  */
 public class LoginServiceImpl implements LoginService{
 
-    private List<Usuario> usuarios = new ArrayList<Usuario>();
+    private Usuario usuario ;
+    private UsuarioServiceImpl objUsuario = new UsuarioServiceImpl() ;
     private List<Map> menus = new ArrayList<Map>();
 
     public LoginServiceImpl() {
-        Usuario user = new Usuario();
-        user.setCodUsuario(1);
-        user.setMail("alumno@upc.com");
-        user.setApePaterno("Rojas");
-        user.setApeMaterno("Sanchez");
-        user.setNomUsuario("Julio");
-        user.setPassword("123");
-        user.setTipoUsuario("alumno");
-        usuarios.add(user);
-        
-        user = new  Usuario();
-        user.setCodUsuario(2);
-        user.setMail("profesor@upc.com");
-        user.setApePaterno("Sosa");
-        user.setApeMaterno("Hernandez");
-        user.setNomUsuario("Roberto");
-        user.setPassword("123");
-        user.setTipoUsuario("profesor");
-        usuarios.add(user);
 
+
+      
         Map menu = new HashMap();
         menu.put("tipo", "alumno");
         menu.put("url", "PaginaAlumno.action");
@@ -61,6 +45,7 @@ public class LoginServiceImpl implements LoginService{
         menu.put("url", "PaginaPerfilAlumno.action");
         menu.put("descripcion", "Perfil");
         menus.add(menu);
+
         menu = new HashMap();
         menu.put("tipo", "alumno");
         menu.put("url", "Salir.action");
@@ -111,17 +96,23 @@ public class LoginServiceImpl implements LoginService{
 
     }
 
-    public Usuario getUsuario(String mail, String password) {
-        Usuario user = null;
-        for (Usuario usuario : usuarios) {            
-            if(usuario.getMail().equals(mail)){
-                if(password.equals(usuario.getPassword())){
-                    return usuario;
-                }
-            }
+    public Usuario validaUsuario(String mail, String password) {
+   System.out.println("Valida usuario__________________________");
+        Usuario user = objUsuario.getUsuario(mail, password);
+    System.out.println("Obtiene usuario__________________________");
+     System.out.println(user.getMail());
+
+
+        if (user != null){
+             return user;
         }
-        return user;
+        else{
+             return null;
+        }
+           
     }
+
+   
 
     public List<Map> getMenu(String tipoUsuario) {
         List<Map> menu = new ArrayList<Map>();
