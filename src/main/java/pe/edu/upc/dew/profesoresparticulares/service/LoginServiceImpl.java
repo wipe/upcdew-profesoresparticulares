@@ -48,22 +48,26 @@ public class LoginServiceImpl implements LoginService{
 
         menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "Salir.action");
-        menu.put("descripcion", "Salir");
+        menu.put("url", "PaginaAlumnoClasificarProfesor.action");
+        menu.put("descripcion", "Calificacion de Profesores");
         menus.add(menu);
 
         menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "PaginaAlumnoClasificarProfesor.action");
-        menu.put("descripcion", "Clasificacion de Profesores");
+        menu.put("url", "Salir.action");
+        menu.put("descripcion", "Salir");
         menus.add(menu);
 
-         menu = new HashMap();
+
+     
+
+        menu = new HashMap();
         menu.put("tipo", "alumno");
-        menu.put("url", "PaginaPerfilAlumno.action");
-        menu.put("descripcion", "Clasificacion de Profesores");
+        menu.put("url", "Salir.action");
+        menu.put("descripcion", "Salir");
         menus.add(menu);
 
+    
         menu = new HashMap();
         menu.put("tipo", "profesor");
         menu.put("url", "PaginaProfesor.action");
