@@ -32,16 +32,16 @@
 	<div id="page-bgbtm">
 	  <table width="622" border="0">
         <tr>
-          <td height="30" colspan="8"><div align="center">Clasificación de profesores </div></td>
+          <td height="30" colspan="8"><div align="center"><strong>Calificación de Profesores </strong></div></td>
         </tr>
         <tr>
           <td width="55" height="30">&nbsp;</td>
           <td width="76">Profesor</td>
-          <td width="225"><label>
+          <td width="255"><label>
             <select name="select">
-              </select>
+            </select>
           </label></td>
-          <td width="155">&nbsp;</td>
+          <td width="125">&nbsp;</td>
           <td width="19">&nbsp;</td>
           <td width="19">&nbsp;</td>
           <td width="19">&nbsp;</td>
@@ -49,10 +49,15 @@
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td>clasificacion</td>
+          <td>Calificacion</td>
           <td><label>
           <select name="select2">
-              </select>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+           </select>
           </label></td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
@@ -62,9 +67,43 @@
         </tr>
         <tr>
           <td>&nbsp;</td>
+          <td>Comentario:</td>
+          <td><form name="form1" method="post" action="">
+            <label>
+            <textarea name="textarea"></textarea>
+            </label>
+          </form>          </td>
           <td>&nbsp;</td>
-          <td><label>
-                  <input type="submit" name="Submit" value="Enviar" > </input>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><input type="submit" name="grabar" value="Grabar" ></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="8">Lista de calificaciones </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><label></input>
+                  <!-- <input type="button" value="Salir" onClick="window.location = 'principal.jsp';"> -->
+               
           </label></td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
