@@ -9,7 +9,9 @@ package pe.edu.upc.dew.profesoresparticulares.service;
  *
  * @author HDRESDA
  */
-public class AlumnoClasificacionProfesorService {
+public interface AlumnoClasificacionProfesorService {
+
+    public void actualizarCalificacion(Integer codAlumno, Integer codProfesor, Integer calificacion, String comentario);
 
 
 }
