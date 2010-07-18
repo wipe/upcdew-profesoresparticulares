@@ -101,10 +101,10 @@ public class LoginServiceImpl implements LoginService{
     }
 
     public Usuario validaUsuario(String mail, String password) {
-   System.out.println("Valida usuario__________________________");
+        System.out.println("Valida usuario__________________________");
         Usuario user = objUsuario.getUsuario(mail, password);
-    System.out.println("Obtiene usuario__________________________");
-     System.out.println(user.getMail());
+        System.out.println("Obtiene usuario__________________________");
+        System.out.println(user.getMail());
 
         if (user != null){
              return user;
