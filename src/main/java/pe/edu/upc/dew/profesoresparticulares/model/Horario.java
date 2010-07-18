@@ -16,9 +16,13 @@ public class Horario {
     private Integer codHorario;
     private Integer codProfesor;
     private Integer codAlumno;
-    private Date fecha;
+    private String fecha;
     private Integer codHora;
     private String lugar;
+
+    public Horario(){
+        
+    }
 
     public Integer getCodAlumno() {
         return codAlumno;
@@ -52,11 +56,11 @@ public class Horario {
         this.codProfesor = codProfesor;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
