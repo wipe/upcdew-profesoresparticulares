@@ -17,29 +17,52 @@ import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 
 public class ConsultaHorarioProfesorImpl  implements ConsultaHorarioProfesorService{
 
-     private List<Horario> HorarioProfesor = new ArrayList<Horario>();
+     private List<Horario> horarioProfesor = new ArrayList<Horario>();
 
     public ConsultaHorarioProfesorImpl(){
-        Horario objHorario1 = new Horario();
-        objHorario1.setCodHorario(1);
-        objHorario1.setCodProfesor(1);
-        objHorario1.setCodHora(1);
-        objHorario1.setFecha(new Date("01-06-2010"));
-        objHorario1.setCodAlumno(0);
-        HorarioProfesor.add(objHorario1);
 
+         System.out.println("Agregando primer horario");
+        Horario objHorario1 = new Horario();
+         System.out.println("instanciado");
+        objHorario1.setCodHorario(1);
+        System.out.println("codHorario");
+        objHorario1.setCodProfesor(2);
+         System.out.println("codProfesor");
+        objHorario1.setCodHora(1);
+             System.out.println("codHora");
+        objHorario1.setLugar("UPC");
+             System.out.println("lugar");
+        objHorario1.setFecha("01-06-2010");
+        System.out.println("fecha");
+        objHorario1.setCodAlumno(0);
+        horarioProfesor.add(objHorario1);
+
+         System.out.println("Agregando segundo horario");
         Horario objHorario2 = new Horario();
         objHorario2.setCodHorario(2);
-        objHorario2.setCodProfesor(1);
+        objHorario2.setCodProfesor(2);
         objHorario2.setCodHora(2);
-        objHorario2.setFecha(new Date("01-06-2010"));
+        objHorario1.setLugar("Cibertec");
+        objHorario2.setFecha("01-06-2010");
         objHorario2.setCodAlumno(0);
-        HorarioProfesor.add(objHorario1);
+        horarioProfesor.add(objHorario2);
 
     }
 
       public List<Horario> getHorarioProfesor(int codProfesor) {
-          return HorarioProfesor;
+          
+        List<Horario> lista = new ArrayList<Horario>();
+
+        for (Horario horas : horarioProfesor) {
+
+             System.out.println("codigo profesor :" +codProfesor);
+            if (horas.getCodProfesor() == codProfesor  ){
+                lista.add(horas);
+                System.out.println("Hora :" + horas.getCodHora());
+            }
+
+        }       
+          return lista;
       }
 
 }
