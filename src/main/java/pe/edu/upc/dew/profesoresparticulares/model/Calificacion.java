@@ -5,6 +5,8 @@
 
 package pe.edu.upc.dew.profesoresparticulares.model;
 
+import java.util.Date;
+
 /**
  *
  * @author Wilder
@@ -15,6 +17,15 @@ public class Calificacion {
     private Integer codProfesor;
     private Integer calificacion;
     private String comentario;
+    private Date fecha;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 
     public Integer getCalificacion() {
         return calificacion;
