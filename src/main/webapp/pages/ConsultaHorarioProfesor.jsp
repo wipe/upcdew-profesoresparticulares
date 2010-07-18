@@ -36,17 +36,39 @@
 	<!-- end #menu -->
 	<div id="page">
 
+            <table width="500" border="1">
 
-        <%for(int i=0; i< horariosProfesor.size(); i++){%>
-             <li class="" >
-                <%=((Horario)horariosProfesor.get(i)).getCodHorario()%>
-             </li>
-              <li class="" >
-                <%=((Horario)horariosProfesor.get(i)).getLugar()%>
-             </li>
-             <br></br>
-             
-         <% }%>
+                <tr>
+                    <td><strong>Codigo Horario</strong></td>
+                    <td><strong>Fecha</strong></td>
+                    <td><strong>Hora</strong></td>
+                    <td><strong>Lugar</strong></td>
+                    <td><strong>Alumno</strong></td>
+                </tr>
+
+                <%for(int i=0; i< horariosProfesor.size(); i++){%>
+                     <li class="" >
+
+                         <%String color; %>
+                         <%if(((Horario)horariosProfesor.get(i)).getNombreAlumno().equals("")){
+                             color = "#FFFFFF";
+                         }
+                         else {
+                             color = "#00FFFF";
+                         }
+                         %>
+
+                     <tr bgcolor=<%= color %>
+                        <td><%=((Horario)horariosProfesor.get(i)).getCodHorario()%></td>
+                        <td><%=((Horario)horariosProfesor.get(i)).getFecha()%></td>
+                        <td><%=((Horario)horariosProfesor.get(i)).getCodHora()%></td>
+                        <td><%=((Horario)horariosProfesor.get(i)).getLugar()%></td>
+                        <td><%=((Horario)horariosProfesor.get(i)).getNombreAlumno()%></td>
+                        </tr>
+                    </li>
+                <% }%>
+
+          </table>
 
 	<div id="page-bgtop">
 	<div id="page-bgbtm"></div>
