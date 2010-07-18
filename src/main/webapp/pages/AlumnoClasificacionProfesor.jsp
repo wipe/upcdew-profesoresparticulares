@@ -1,7 +1,10 @@
 
 
-<%@ page import="java.util.*"%>
+<%@ page import="java.util.*,pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+<%Usuario usuario = (Usuario)request.getSession().getAttribute("USUARIO");%>
+<%List<Usuario> profesor = (List<Usuario>)request.getAttribute("PROFESORES");%>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -39,6 +42,10 @@
           <td width="76">Profesor</td>
           <td width="255"><label>
             <select name="select">
+                <%for(Usuario p : profesor){%>
+			<option value='<%=p.getCodUsuario()%>'><%=p.getApePaterno()+" "+p.getNomUsuario()%>  </option>
+                <% }%>
+                
             </select>
           </label></td>
           <td width="125">&nbsp;</td>
@@ -98,6 +105,23 @@
         <tr>
           <td colspan="8">Lista de calificaciones </td>
         </tr>
+
+         <table border=1 cellspacing=0 cellpadding=2 bordercolor="666633">
+                    <tr class= "EtiquetaForm">
+                        <td>Fecha </td><td>Profesor</td><td>Calificacion</td><td>Comentario</td>
+                    </tr>
+                    <c:forEach var="calificacion" items="${calificacion}">
+                        <tr class= "EtiquetaForm" >
+                            <td>${calificacion.fecha}</td>
+                            <td>${calificacion.codprofesor}</td>
+                            <td>${contrato.calificacion}</td>
+                            <td>${contrato.comentario}</td>
+                        </tr>
+                    </c:forEach>
+
+                </table>
+
+
         <tr>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
