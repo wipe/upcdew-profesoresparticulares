@@ -20,6 +20,9 @@ public class Horario {
     private Integer codHora;
     private String lugar;
 
+    private String nombreAlumno;
+
+
     public Horario(){
         
     }
@@ -71,6 +74,15 @@ public class Horario {
     public void setLugar(String lugar) {
         this.lugar = lugar;
     }
+
+     public String getNombreAlumno() {
+        return nombreAlumno;
+    }
+
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
+    }
+
 
 
 }
