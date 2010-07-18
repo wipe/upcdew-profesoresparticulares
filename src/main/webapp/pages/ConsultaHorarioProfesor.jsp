@@ -5,7 +5,10 @@
 --%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page import="java.util.*"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Horario"%>
+
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+<%List<Horario> horariosProfesor = (List<Horario>)request.getSession().getAttribute("horariosProfesor");%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -32,6 +35,19 @@
 	</div>
 	<!-- end #menu -->
 	<div id="page">
+
+
+        <%for(int i=0; i< horariosProfesor.size(); i++){%>
+             <li class="" >
+                <%=((Horario)horariosProfesor.get(i)).getCodHorario()%>
+             </li>
+              <li class="" >
+                <%=((Horario)horariosProfesor.get(i)).getLugar()%>
+             </li>
+             <br></br>
+             
+         <% }%>
+
 	<div id="page-bgtop">
 	<div id="page-bgbtm"></div>
 	</div>
