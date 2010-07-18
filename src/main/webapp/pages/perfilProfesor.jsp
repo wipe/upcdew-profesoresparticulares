@@ -8,7 +8,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Usuario"%>
+
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+<%Usuario user = (Usuario)request.getSession().getAttribute("USUARIO");%>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -45,31 +49,31 @@
         </tr>
         <tr>
           <td height="30"><strong>Codigo</strong></td>
-          <td><input type="text" name="txtCodigo" /></td>
+          <td><input type="text" name="txtCodigo"  value=<%=user.getCodUsuario() %>/></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td><strong>Nombre</strong></td>
           <td><label>
-          <input type="text" name="txtNombre" />
+                  <input type="text" name="txtNombre" value=<%=user.getNomUsuario() %> />
           </label></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td height="17"><strong>Apellido Paterno </strong></td>
           <td><label>
-            <input type="text" name="txtApellidoPaterno" />
+            <input type="text" name="txtApellidoPaterno" value=<%=user.getApePaterno() %> />
           </label></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td><strong>Apellido Materno </strong></td>
-          <td><input type="text" name="txtApelidoMaterno" /></td>
+          <td><input type="text" name="txtApelidoMaterno" value=<%=user.getApeMaterno() %> /></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td><strong>Mail</strong></td>
-          <td><input type="text" name="txtmail" /></td>
+          <td><input type="text" name="txtmail"  value=<%=user.getMail() %>/></td>
           <td>&nbsp;</td>
         </tr>
         <tr>
