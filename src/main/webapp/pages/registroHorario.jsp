@@ -10,22 +10,32 @@
 <%@ page import="java.util.*, pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 <%List<Curso> cursos = (List<Curso>)request.getAttribute("CURSOS");%>
+<%List<Horario> horarios = (List<Horario>)request.getAttribute("HORARIOS");%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Profesores Particulares</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" /></head>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="js/calendar/jscal2.js"></script>
+<script src="js/calendar/lang/es.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/calendar/jscal2.css" />
+<link rel="stylesheet" type="text/css" href="css/calendar/border-radius.css" />
+<link rel="stylesheet" id="compact" type="text/css" href="css/calendar/reduce-spacing.css" />
+
+</head>
 <script type="text/javascript">
     function borrar() {
-        alert("sdjfkhdfk");
         var form = document.forms[0];
         form.action = "<%=request.getContextPath()%>/borrarHorario.action";
         document.getElementsByTagName("form")[0].submit();
     }
 </script>
 <body><form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action" method="post">
+
 
 	<div id="header">
 		<div id="logo">
@@ -42,6 +52,7 @@
 
 		</ul>
 	</div>
+                    
 	<!-- end #menu -->
 	<div id="page">
 	<div id="page-bgtop">
@@ -65,88 +76,17 @@
           <td height="35"><strong>Fecha</strong></td>
           <td><table width="200" border="0">
             <tr>
-              <td>Dia</td>
-              <td><select name="dia" size="1">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
-                  <option value="26">26</option>
-                  <option value="27">27</option>
-                  <option value="28">28</option>
-                  <option value="29">29</option>
-                  <option value="30">30</option>
-                  <option value="31">31</option>
-              </select></td>
-              <td>Mes</td>
-              <td><select name="mes">
-                  <option value="Enero">Enero</option>
-                  <option value="Febrero">Febrero</option>
-                  <option value="Marzo">Marzo</option>
-                  <option value="Abril">Abril</option>
-                  <option value="Mayo">Mayo</option>
-                  <option value="Junio">Junio</option>
-                  <option value="Julio">Julio</option>
-                  <option value="Agosto">Agosto</option>
-                  <option value="Septiembre">Septiembre</option>
-                  <option value="Octubre">Octubre</option>
-                  <option value="Noviembre">Noviembre</option>
-                  <option value="Diciembre">Diciembre</option>
-              </select></td>
-              <td>Año:</td>
-              <td><select name="anio">
-                  <option value="2010">2010</option>
-                  <option value="2011">2011</option>
-                  <option value="2013">2012</option>
-              </select></td>
+              <td id="cal"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </table></td>
           <td>&nbsp;</td>
         </tr>
-        <tr>
-          <td><strong>Hora</strong></td>
-          <td><label>
-            <select name="hora">
-			  	 <option value="1">8:00  - 9:00</option>
-				 <option value="2">9:00  - 10:00</option>
-				 <option value="3">10:00 - 11:00</option>
-				 <option value="4">11:00 - 12:00</option>
-				 <option value="5">12:00 - 13:00</option>
-				 <option value="6">13:00 - 14:00</option>
-				 <option value="7">14:00 - 15:00</option>
-				 <option value="8">15:00 - 16:00</option>
-				 <option value="9">16:00 - 17:00</option>
-				 <option value="9">17:00 - 18:00</option>
-				 <option value="9">18:00 - 19:00</option>
-				 <option value="9">19:00 - 20:00</option>
-				 <option value="9">20:00 - 21:00</option>
-				 <option value="9">21:00 - 22:00</option>
-				 <option value="9">22:00 - 23:00</option>
-              </select>
-          </label></td>
-          <td>&nbsp;</td>
-        </tr>
+        
         <tr>
           <td height="17"><strong>Lugar</strong></td>
           <td><label>
@@ -157,6 +97,19 @@
         <tr>
           <td><strong>Costo</strong></td>
           <td><input type="text" name="costo" /></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td><strong>Horas</strong></td>
+          <td><select name="horas">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+              </select>
+          </td>
           <td>&nbsp;</td>
         </tr>
         <tr>
@@ -173,6 +126,10 @@
           <td>&nbsp;</td>
         </tr>
       </table>
+
+              <table>
+
+              </table>
 	</div>
 	</div>
 	<!-- end #page -->
@@ -180,4 +137,22 @@
 	<!-- end #footer -->
     </form>
 </body>
+<script>//<![CDATA[
+
+// initial dates
+      var now = new Date();
+
+      // create the calendars
+      var cal1 = Calendar.setup({ 
+          cont: "cal",
+          date: now,
+          stylesheet: "compact",
+          weekNumbers: true
+        });
+
+      // this hack is necessary to prevent infinite recursion
+      var updating = false;
+ //]]></script>
+
+
 </html>
