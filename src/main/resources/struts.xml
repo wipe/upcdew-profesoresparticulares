@@ -16,6 +16,20 @@
                 <interceptor-ref name="autorizacion"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
+
+            <interceptor name="profesor"
+                         class="pe.edu.upc.dew.profesoresparticulares.interceptor.ProfesorInterceptor">
+            </interceptor>
+            <interceptor name="alumno"
+                         class="pe.edu.upc.dew.profesoresparticulares.interceptor.AlumnoInterceptor">
+            </interceptor>
+
+            <interceptor-stack name="profesorStack">
+                <interceptor-ref name="profesor"/>
+            </interceptor-stack>
+            <interceptor-stack name="alumnoStack">
+                <interceptor-ref name="alumno"/>
+            </interceptor-stack>
         </interceptors>
 
         <global-results>
@@ -33,6 +47,7 @@
 
         <action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
             <interceptor-ref name="autorizacionStack"/>
+            <interceptor-ref name="profesor"/>
             <result name="success">pages/registroHorario.jsp</result>
         </action>
 
