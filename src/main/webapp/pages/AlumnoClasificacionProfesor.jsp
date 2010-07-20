@@ -1,5 +1,3 @@
-
-
 <%@ page import="java.util.*,pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 <%Usuario usuario = (Usuario)request.getSession().getAttribute("USUARIO");%>
@@ -41,10 +39,9 @@
           <td width="55" height="30">&nbsp;</td>
           <td width="76">Profesor</td>
           <td width="255"><label>
-            <select name="select">
-                <%for(Usuario p : profesor){%>
-			<option value='<%=p.getCodUsuario()%>'><%=p.getApePaterno()+" "+p.getNomUsuario()%>  </option>
-                <% }%>
+            <select name="cmbProfesores" id="cmbProfesores">
+                <option value="1">Juan Perez</option>
+		<option value="2">Luis Palma</option>
                 
             </select>
           </label></td>
@@ -58,7 +55,7 @@
           <td>&nbsp;</td>
           <td>Calificacion</td>
           <td><label>
-          <select name="select2">
+          <select name="cmbCalificaciones" id="cmbCalificaciones">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -77,7 +74,7 @@
           <td>Comentario:</td>
           <td><form name="form1" method="post" action="">
             <label>
-            <textarea name="textarea"></textarea>
+            <textarea name="textarea" cols="70"></textarea>
             </label>
           </form>          </td>
           <td>&nbsp;</td>
