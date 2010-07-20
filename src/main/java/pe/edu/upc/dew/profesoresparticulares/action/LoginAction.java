@@ -39,8 +39,6 @@ public class LoginAction extends BaseAction{
             System.out.println(user.getPassword());
             setSession(Constantes.MENU, service.getMenu(user.getTipoUsuario()));
             System.out.println(service.getMenu(user.getTipoUsuario()).size()+"");
-            
-           
 
             System.out.println("Cargando horarios");
             ConsultaHorarioProfesorImpl controladorHorario = new ConsultaHorarioProfesorImpl();
@@ -57,11 +55,16 @@ public class LoginAction extends BaseAction{
              setSession("horariosProfesor", objHorarios);
               System.out.println("horarios subidos");
 
+              return SUCCESS;
+
+        }else{
+            return ERROR;
         }
-        return SUCCESS;
+        
     }
 
     public String salir(){
+        getSession().removeAttribute(Constantes.USUARIO);
         getSession().invalidate();
         return SUCCESS;
     }

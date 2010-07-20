@@ -104,8 +104,7 @@ public class LoginServiceImpl implements LoginService{
         System.out.println("Valida usuario__________________________");
         Usuario user = objUsuario.getUsuario(mail, password);
         System.out.println("Obtiene usuario__________________________");
-        System.out.println(user.getMail());
-
+        
         if (user != null){
              return user;
         }

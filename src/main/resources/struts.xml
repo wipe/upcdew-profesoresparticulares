@@ -5,8 +5,22 @@
 <struts>
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
-
+    
     <package name="base" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="autorizacion"
+                         class="pe.edu.upc.dew.profesoresparticulares.interceptor.AuthorizationInterceptor">
+            </interceptor>
+            <interceptor-stack name="autorizacionStack">
+                <interceptor-ref name="autorizacion"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="error">index.jsp</result>
+        </global-results>
 
         <action name="login" class="loginAction" method="login">
             <result name="success">pages/profesores.jsp</result>
@@ -18,53 +32,64 @@
         </action>
 
         <action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
+            <interceptor-ref name="autorizacionStack"/>
             <result name="success">pages/registroHorario.jsp</result>
         </action>
-      
+
         <action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
+            <interceptor-ref name="autorizacionStack"/>
             <result name="success">pages/profesores.jsp</result>
         </action>
 
         <action name="borrarHorario" class="registrarHorarioAction" method="borrarHorario">
+            <interceptor-ref name="autorizacionStack"/>
             <result name="success">pages/contacto.html</result>
         </action>
 
-
         <!--inicio perfil Profesor-->
         <action name="PaginaProfesor">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/profesores.jsp</result>
         </action>
 
         <action name="PaginaRegistroHorarioProfesor" class="registrarHorarioAction" method="inicio">
+            <interceptor-ref name="autorizacionStack"/>
             <result name="success">pages/registroHorario.jsp</result>
         </action>
 
         <action name="PaginaConsultaHorarioProfesor">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/ConsultaHorarioProfesor.jsp</result>
         </action>
 
         <action name="PaginaPerfilProfesor">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/perfilProfesor.jsp</result>
         </action>
         <!--///////////////////////////////////////////////////-->
         <!--inicio perfil Alumno-->
         <action name="PaginaAlumno">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/alumnos.jsp</result>
         </action>
 
         <action name="PaginaRealizarReservasAlumno">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/realizarReservas.jsp</result>
         </action>
 
         <action name="PaginaConsultaReservasAlumno">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/alumnoConsultaReservas.jsp</result>
         </action>
 
         <action name="PaginaPerfilAlumno">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/perfilAlumno.jsp</result>
         </action>
 
-          <action name="PaginaAlumnoClasificarProfesor">
+        <action name="PaginaAlumnoClasificarProfesor">
+            <interceptor-ref name="autorizacionStack"/>
             <result>pages/AlumnoClasificacionProfesor.jsp</result>
         </action>
 
