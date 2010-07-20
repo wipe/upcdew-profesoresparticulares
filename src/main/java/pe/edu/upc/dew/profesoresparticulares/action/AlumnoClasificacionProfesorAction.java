@@ -27,7 +27,7 @@ public class AlumnoClasificacionProfesorAction extends BaseAction {
 
     public String getUsuarioProfesores(){
         List<Usuario> usuario = usuarioService.getUsuarioProfesores();
-        System.out.print("tamaño"+usuario.size());
+        System.out.print("tamaño "+usuario.size());
         return SUCCESS;
     }
     public String actualizarCalificacion(){
