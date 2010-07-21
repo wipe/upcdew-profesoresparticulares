@@ -15,18 +15,12 @@ import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
 public class RegistrarHorarioAction extends BaseAction{
 
     private String curso;
-    private String dia;
-    private String mes;
-    private String anio;
+    private String fecha;
     private String hora;
     private String lugar;
     private String costo;
 
     private RegistrarHorarioService service;
-
-    public RegistrarHorarioService getService() {
-        return service;
-    }
 
     public void setService(RegistrarHorarioService service) {
         this.service = service;
@@ -43,20 +37,13 @@ public class RegistrarHorarioAction extends BaseAction{
 
     public String registrarHorario(){
         System.out.println("ntra a grabar");
+        setRequest(Constantes.CURSOS, service.getCursos());
         return SUCCESS;
     }
 
     public String borrarHorario(){
         System.out.println("ntra a borrar");
         return SUCCESS;
-    }
-
-    public String getAnio() {
-        return anio;
-    }
-
-    public void setAnio(String anio) {
-        this.anio = anio;
     }
 
     public String getCosto() {
@@ -75,14 +62,6 @@ public class RegistrarHorarioAction extends BaseAction{
         this.curso = curso;
     }
 
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
     public String getHora() {
         return hora;
     }
@@ -99,12 +78,13 @@ public class RegistrarHorarioAction extends BaseAction{
         this.lugar = lugar;
     }
 
-    public String getMes() {
-        return mes;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setMes(String mes) {
-        this.mes = mes;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
+
 
 }

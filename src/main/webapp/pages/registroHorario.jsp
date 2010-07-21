@@ -34,7 +34,9 @@
         document.getElementsByTagName("form")[0].submit();
     }
 </script>
-<body><form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action" method="post">
+<body>
+
+    <form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action" method="post">
 
 <table style="float: left; margin: 0 1em 1em 0"><tr><td>
 <div id="calendar-container"></div>
@@ -109,7 +111,7 @@ Calendar.setup({
           <td height="35"><strong>Fecha</strong></td>
           <td><table width="200" border="0">
             <tr>
-              <td><input id="calendar-inputField" /></td>
+              <td><input id="fecha" name="fecha"/></td>
               <td><button type="button" id="calendar-trigger">...</button></td>
               <td></td>
               <td></td>
@@ -134,7 +136,7 @@ Calendar.setup({
         </tr>
         <tr>
           <td><strong>Horas</strong></td>
-          <td><select name="horas">
+          <td><select name="hora">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -147,7 +149,7 @@ Calendar.setup({
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><input name="submit" type="submit" id="search-submit" value="Grabar" />
+          <td><input onclick="grabar()" type="button" id="search-submit" value="Grabar" />
               <input name="submit2" type="button" id="submit" value="Borrar" 
                      onclick="borrar()" /></td>
           
@@ -160,8 +162,30 @@ Calendar.setup({
         </tr>
       </table>              
               <script>//<![CDATA[
-Calendar.setup({ trigger: "calendar-trigger", inputField: "calendar-inputField" });
+Calendar.setup({ trigger: "calendar-trigger", inputField: "fecha" });
 //]]></script>
+
+<%--
+             <table>
+                 <thead>
+                 <th>Curso</th>
+                 <th>Fecha</th>
+                 <th>Lugar</th>
+                 <th>Costo</th>
+                 <th>Horas</th>
+                 </thead>
+                 <tbody>
+                     <tr id="patron">
+                         <td id="curso"></td>
+                         <td id="fecha"></td>
+                         <td id="lugar"></td>
+                         <td id="costo"></td>
+                         <td id="horas"></td>
+                     </tr>
+                 </tbody>
+             </table>--%>
+
+
 	</div>
 	</div>
 	<!-- end #page -->
