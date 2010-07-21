@@ -10,7 +10,7 @@ import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
 
 /**
  *
- * @author synopsis
+ * @author Wilder
  */
 public class RegistrarHorarioAction extends BaseAction{
 
@@ -42,7 +42,7 @@ public class RegistrarHorarioAction extends BaseAction{
     }
 
     public String registrarHorario(){
-        
+        System.out.println("ntra a grabar");
         return SUCCESS;
     }
 
