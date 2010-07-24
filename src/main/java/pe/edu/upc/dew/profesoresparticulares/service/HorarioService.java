@@ -13,10 +13,12 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
  *
  * @author Wilder
  */
-public interface RegistrarHorarioService {
+public interface HorarioService {
 
     public List<Curso> getCursos();
     public List<Horario> registrarHorario();
+
+    public void registrarHorario(Horario horario);
 
 
     public List<Usuario> getUsuarioProfesores() ;

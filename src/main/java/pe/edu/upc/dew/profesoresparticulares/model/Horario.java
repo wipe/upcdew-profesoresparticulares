@@ -5,8 +5,6 @@
 
 package pe.edu.upc.dew.profesoresparticulares.model;
 
-import java.util.Date;
-
 /**
  *
  * @author Wilder
@@ -17,8 +15,10 @@ public class Horario {
     private Integer codProfesor;
     private Integer codAlumno;
     private String fecha;
-    private Integer codHora;
+    private String hora;
     private String lugar;
+    private Integer codCurso;
+    private Integer costo;
 
     private String nombreAlumno;
 
@@ -35,12 +35,12 @@ public class Horario {
         this.codAlumno = codAlumno;
     }
 
-    public Integer getCodHora() {
-        return codHora;
+    public String getHora() {
+        return hora;
     }
 
-    public void setCodHora(Integer codHora) {
-        this.codHora = codHora;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public Integer getCodHorario() {
@@ -83,6 +83,21 @@ public class Horario {
         this.nombreAlumno = nombreAlumno;
     }
 
+    public Integer getCodCurso() {
+        return codCurso;
+    }
+
+    public void setCodCurso(Integer codCurso) {
+        this.codCurso = codCurso;
+    }
+
+    public Integer getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Integer costo) {
+        this.costo = costo;
+    }
 
 
 }

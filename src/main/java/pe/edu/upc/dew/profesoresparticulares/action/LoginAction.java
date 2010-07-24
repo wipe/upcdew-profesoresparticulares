@@ -10,7 +10,7 @@ import java.util.List;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 import pe.edu.upc.dew.profesoresparticulares.service.LoginService;
-import pe.edu.upc.dew.profesoresparticulares.service.RegistrarHorarioServiceImpl;
+import pe.edu.upc.dew.profesoresparticulares.service.HorarioServiceImpl;
 import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
 
 
@@ -42,7 +42,7 @@ public class LoginAction extends BaseAction{
 
             System.out.println("Cargando horarios");
 
-            RegistrarHorarioServiceImpl controladorHorario = new RegistrarHorarioServiceImpl();
+            HorarioServiceImpl controladorHorario = new HorarioServiceImpl();
             List<Horario> objHorarios = new  ArrayList<Horario>();
                System.out.println(user.getCodUsuario() + " codigo de profesor" );
             objHorarios = controladorHorario.getHorarioProfesor(user.getCodUsuario());

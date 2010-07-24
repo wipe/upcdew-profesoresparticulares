@@ -12,12 +12,12 @@ import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 
 
-public class RegistrarHorarioServiceImpl implements RegistrarHorarioService{
+public class HorarioServiceImpl implements HorarioService{
     
     List<Curso> cursos = new ArrayList<Curso>();
     List<Horario> horarios = new ArrayList<Horario>();
 
-    public RegistrarHorarioServiceImpl(){
+    public HorarioServiceImpl(){
         Curso curso = new Curso();
         curso.setCodCurso(1);
         curso.setNomCurso("Matematica");
@@ -39,7 +39,7 @@ public class RegistrarHorarioServiceImpl implements RegistrarHorarioService{
         Horario objHorario1 = new Horario();
         objHorario1.setCodHorario(1);
         objHorario1.setCodProfesor(2);
-        objHorario1.setCodHora(1);
+        objHorario1.setHora("1");
         objHorario1.setLugar("UPC");
         objHorario1.setFecha("01-06-2010");
         objHorario1.setCodAlumno(0);
@@ -50,7 +50,7 @@ public class RegistrarHorarioServiceImpl implements RegistrarHorarioService{
         Horario objHorario2 = new Horario();
         objHorario2.setCodHorario(2);
         objHorario2.setCodProfesor(2);
-        objHorario2.setCodHora(2);
+        objHorario2.setHora("2");
         objHorario2.setLugar("Cibertec");
         objHorario2.setFecha("01-06-2010");
         objHorario2.setCodAlumno(1);
@@ -67,7 +67,9 @@ public class RegistrarHorarioServiceImpl implements RegistrarHorarioService{
         return horarios;
     }
 
-
+    public void registrarHorario(Horario horario){
+        horarios.add(horario);
+    }
 
 
     private List<Horario> horarioProfesor = new ArrayList<Horario>();
@@ -81,7 +83,7 @@ public class RegistrarHorarioServiceImpl implements RegistrarHorarioService{
              System.out.println("codigo profesor :" +codProfesor);
             if (horas.getCodProfesor() == codProfesor  ){
                 lista.add(horas);
-                System.out.println("Hora :" + horas.getCodHora());
+                System.out.println("Hora :" + horas.getHora());
             }
 
         }

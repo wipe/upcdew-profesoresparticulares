@@ -7,27 +7,34 @@ package pe.edu.upc.dew.profesoresparticulares.model;
 
 /**
  *
- * @author Wilder
+ * @author synopsis
  */
 public class Hora {
 
-    private Integer codHora;
-    private String descHora;
+    private String clave;
+    private String descripcion;
 
-    public Integer getCodHora() {
-        return codHora;
+    public Hora(String clave, String descripcion) {
+        this.clave = clave;
+        this.descripcion = descripcion;
     }
 
-    public void setCodHora(Integer codHora) {
-        this.codHora = codHora;
+    public String getClave() {
+        return clave;
     }
 
-    public String getDescHora() {
-        return descHora;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
-    public void setDescHora(String descHora) {
-        this.descHora = descHora;
+    public String getDescripcion() {
+        return descripcion;
     }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    
 
 }

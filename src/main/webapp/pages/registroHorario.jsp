@@ -10,7 +10,7 @@
 <%@ page import="java.util.*, pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 <%List<Curso> cursos = (List<Curso>)request.getAttribute("CURSOS");%>
-<%List<Horario> horarios = (List<Horario>)request.getAttribute("HORARIOS");%>
+<%List<Horario> horarios = (List<Horario>)request.getAttribute("HORARIO");%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -27,16 +27,13 @@
 <link rel="stylesheet" id="compact" type="text/css" href="css/calendar/reduce-spacing.css" />
 
 </head>
-<script type="text/javascript">
-    function borrar() {
-        var form = document.forms[0];
-        form.action = "<%=request.getContextPath()%>/borrarHorario.action";
-        document.getElementsByTagName("form")[0].submit();
-    }
-</script>
+
 <body>
 
-    <form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action" method="post">
+<%--<form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action"
+      method="post">--%>
+
+    <s:form action="registrarHorario">
 
 <table style="float: left; margin: 0 1em 1em 0"><tr><td>
 <div id="calendar-container"></div>
@@ -135,24 +132,21 @@ Calendar.setup({
           <td>&nbsp;</td>
         </tr>
         <tr>
+          <td><strong>Hora Inicio</strong></td>
+          <td><s:select name="hora" list="horaList" listKey="clave" listValue="descripcion"/>
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
           <td><strong>Horas</strong></td>
-          <td><select name="hora">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-              </select>
+          <td><s:select name="horas" list="horasList" listKey="clave" listValue="descripcion"/>
           </td>
           <td>&nbsp;</td>
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><input onclick="grabar()" type="button" id="search-submit" value="Grabar" />
-              <input name="submit2" type="button" id="submit" value="Borrar" 
-                     onclick="borrar()" /></td>
-          
+          <td><s:submit value="Grabar"/>
+              <input name="submit2" type="button" id="submit" value="Borrar" /></td>          
           <td>&nbsp;</td>
         </tr>
         <tr>
@@ -165,7 +159,6 @@ Calendar.setup({
 Calendar.setup({ trigger: "calendar-trigger", inputField: "fecha" });
 //]]></script>
 
-<%--
              <table>
                  <thead>
                  <th>Curso</th>
@@ -175,25 +168,25 @@ Calendar.setup({ trigger: "calendar-trigger", inputField: "fecha" });
                  <th>Horas</th>
                  </thead>
                  <tbody>
+                     <%for(Horario horario : horarios){%>
                      <tr id="patron">
-                         <td id="curso"></td>
+                         <td id="curso"><%=horario.getCodCurso()%></td>
                          <td id="fecha"></td>
                          <td id="lugar"></td>
                          <td id="costo"></td>
                          <td id="horas"></td>
                      </tr>
+                     <%}%>
                  </tbody>
-             </table>--%>
-
+             </table>
 
 	</div>
 	</div>
 	<!-- end #page -->
 </div>
 	<!-- end #footer -->
-    </form>
+    <%--</form>--%>
+    </s:form>
 </body>
-
-
 
 </html>
