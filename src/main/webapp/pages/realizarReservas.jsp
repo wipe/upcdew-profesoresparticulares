@@ -8,7 +8,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Usuario"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.service.UsuarioServiceImpl"%>
+
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+
+<%UsuarioServiceImpl objUsusarioImpl = new UsuarioServiceImpl();%>
+
+<%List<Usuario> profesores = (List<Usuario>) objUsusarioImpl.getUsuarioProfesores();%>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,6 +28,7 @@
 </head>
 <body>
 
+    
 	<div id="header">
 		<div id="logo">
 			<h1><a href="#">Profesores Particulares   </a></h1>
@@ -33,6 +42,7 @@
 			<li class="" ><a href="<%=request.getContextPath()%>/<%=((Map)menus.get(i)).get("url")%>"><%=((Map)menus.get(i)).get("descripcion")%></a></li>
                     <% }%>
 		</ul>
+
 	</div>
 	<!-- end #menu -->
 	<div id="page">
@@ -60,10 +70,12 @@
           <td>
 
                 <select name="select">
-                  <option>Edgar alvarado</option>
-                  <option>Giomar Martinez</option>
-                  <option>Javier Flores</option>
-                  <option>Elmer Otiniano</option>
+
+                     <%for(int i=0; i<profesores.size(); i++){%>
+                        <option value= <%= profesores.get(i).getCodUsuario()%> >  <%= profesores.get(i).getNomUsuario()%> &nbsp;  <%= profesores.get(i).getApePaterno()%> </option>
+                     <% }%>
+
+             
                 </select>
           </td>
           <td>&nbsp;</td>
