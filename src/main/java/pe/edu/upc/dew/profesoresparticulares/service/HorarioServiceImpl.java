@@ -94,6 +94,23 @@ public class HorarioServiceImpl implements HorarioService{
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+     public List<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha) {
+
+         List<Horario> listaHorario = getHorarioProfesor(codProfesor);
+
+         List<Horario> listaHorarioDisponibles =  new ArrayList<Horario>();
+
+          for (Horario horas : listaHorario) {
+                if (horas.getCodAlumno() == null  ){
+                    listaHorarioDisponibles.add(horas);
+                }
+          }
+
+          System.out.println("horarios disponibles" + listaHorarioDisponibles.size());
+
+          return listaHorarioDisponibles;
+        
+     }
 
 
 

@@ -14,6 +14,7 @@
     <bean id="horarioService" class="pe.edu.upc.dew.profesoresparticulares.service.HorarioServiceImpl" />
     <bean id="loginService" class="pe.edu.upc.dew.profesoresparticulares.service.LoginServiceImpl" />
 
+
 <!--    <bean id="entityManagerFactory"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -48,6 +49,11 @@
 
     <bean id="registrarHorarioAction" scope="prototype"
         class="pe.edu.upc.dew.profesoresparticulares.action.RegistrarHorarioAction">
+        <constructor-arg ref="horarioService" />
+    </bean>
+
+     <bean id="reservaHorarioAction" scope="prototype"
+        class="pe.edu.upc.dew.profesoresparticulares.action.ReservaHorarioAction">
         <constructor-arg ref="horarioService" />
     </bean>
 

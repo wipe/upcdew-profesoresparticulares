@@ -53,17 +53,17 @@ public class UsuarioServiceImpl implements UsuarioService {
         return null;
     }
 
-
      public List<Usuario> getUsuarioProfesores() {
 
-         List<Usuario> UsuarioProfesor = null;
+         List<Usuario> UsuarioProfesor = new ArrayList() ;
         for (Usuario usuario : usuarios) {
 
             if (usuario.getTipoUsuario().equals("profesor")){
                 UsuarioProfesor.add(usuario);
             }
-
         }
+        System.out.println(UsuarioProfesor.size() +" cantidad de profesores");
+
         return  UsuarioProfesor;
 
     }
@@ -77,6 +77,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 UsuarioAlumnos.add(usuario);
             }
         }
+
         return  UsuarioAlumnos;
 
     }

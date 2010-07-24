@@ -59,9 +59,9 @@
                          %>
 
                      <tr bgcolor=<%= color %>
-                        <td><%=((Horario)horariosProfesor.get(i)).getCodHorario()%></td>
+                        <td> <%=((Horario)horariosProfesor.get(i)).getCodHorario()%> </td>
                         <td><%=((Horario)horariosProfesor.get(i)).getFecha()%></td>
-                        <td><%=((Horario)horariosProfesor.get(i)).getCodHora()%></td>
+                        <td><%=((Horario)horariosProfesor.get(i)).getHora()%></td>
                         <td><%=((Horario)horariosProfesor.get(i)).getLugar()%></td>
                         <td><%=((Horario)horariosProfesor.get(i)).getNombreAlumno()%></td>
                         </tr>

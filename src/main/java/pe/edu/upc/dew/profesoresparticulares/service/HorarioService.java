@@ -23,5 +23,6 @@ public interface HorarioService {
 
     public List<Usuario> getUsuarioProfesores() ;
     public List<Horario> getHorarioProfesor(int codProfesor) ;
+    public List<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha);
 
 }

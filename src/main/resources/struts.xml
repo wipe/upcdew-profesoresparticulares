@@ -51,6 +51,12 @@
             <result name="success">pages/registroHorario.jsp</result>
         </action>
 
+         <action name="buscarHorarioDisponibleProfesor" class="reservaHorarioAction" method="buscarHorarioDisponibleProfesor">
+            <interceptor-ref name="autorizacionStack"/>
+            <interceptor-ref name="alumno"/>
+            <result name="success">pages/realizarReservas.jsp</result>
+        </action>
+
         <!--<action name="registrarHorario" class="registrarHorarioAction" method="registrarHorario">
             <interceptor-ref name="autorizacionStack"/>
             <result name="success">pages/profesores.jsp</result>

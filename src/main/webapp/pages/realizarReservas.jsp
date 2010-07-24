@@ -3,7 +3,7 @@
     Created on : 16/06/2010, 12:16:17 PM
     Author     : DUOTRABAJO
 --%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,7 +28,8 @@
 </head>
 <body>
 
-    
+    <s:form action="buscarHorarioDisponibleProfesor">
+
 	<div id="header">
 		<div id="logo">
 			<h1><a href="#">Profesores Particulares   </a></h1>
@@ -69,7 +70,7 @@
           <td>Seleccione un profesor: </td>
           <td>
 
-                <select name="select">
+                <select name="profesor">
 
                      <%for(int i=0; i<profesores.size(); i++){%>
                         <option value= <%= profesores.get(i).getCodUsuario()%> >  <%= profesores.get(i).getNomUsuario()%> &nbsp;  <%= profesores.get(i).getApePaterno()%> </option>
@@ -89,16 +90,16 @@
           <td><table width="200" border="0">
             <tr>
               <td>Dia</td>
-              <td><select name="select2" size="1">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
+              <td><select name="dia" size="1">
+                  <option value="01">1</option>
+                  <option value="02">2</option>
+                  <option value="03">3</option>
+                  <option value="04">4</option>
+                  <option value="05">5</option>
+                  <option value="06">6</option>
+                  <option value="07">7</option>
+                  <option value="08">8</option>
+                  <option value="09">9</option>
                   <option value="10">10</option>
                   <option value="11">11</option>
                   <option value="12">12</option>
@@ -123,22 +124,22 @@
                   <option value="31">31</option>
               </select></td>
               <td>Mes</td>
-              <td><select name="select2">
-                  <option value="Enero">Enero</option>
-                  <option value="Febrero">Febrero</option>
-                  <option value="Marzo">Marzo</option>
-                  <option value="Abril">Abril</option>
-                  <option value="Mayo">Mayo</option>
-                  <option value="Junio">Junio</option>
-                  <option value="Julio">Julio</option>
-                  <option value="Agosto">Agosto</option>
-                  <option value="Septiembre">Septiembre</option>
-                  <option value="Octubre">Octubre</option>
-                  <option value="Noviembre">Noviembre</option>
-                  <option value="Diciembre">Diciembre</option>
+              <td><select name="mes">
+                  <option value="01">Enero</option>
+                  <option value="02">Febrero</option>
+                  <option value="03">Marzo</option>
+                  <option value="04">Abril</option>
+                  <option value="05">Mayo</option>
+                  <option value="06">Junio</option>
+                  <option value="07">Julio</option>
+                  <option value="08">Agosto</option>
+                  <option value="09">Septiembre</option>
+                  <option value="10">Octubre</option>
+                  <option value="11">Noviembre</option>
+                  <option value="12">Diciembre</option>
               </select></td>
               <td>Año:</td>
-              <td><select name="select3">
+              <td><select name="anho">
                   <option value="2010">2010</option>
                   <option value="2011">2011</option>
                   <option value="2013">2012</option>
@@ -177,4 +178,6 @@
 </div>
 	<!-- end #footer -->
 </body>
+
+</s:form>
 </html>
