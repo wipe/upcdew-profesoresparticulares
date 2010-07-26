@@ -115,9 +115,9 @@
             <result>pages/perfilAlumno.jsp</result>
         </action>
 
-        <action name="PaginaAlumnoClasificarProfesor">
+        <action name="PaginaAlumnoClasificarProfesor" class="alumnoCalificacionProfesorAction" method="inicio">
             <interceptor-ref name="autorizacionStack"/>
-            <result>pages/AlumnoClasificacionProfesor.jsp</result>
+            <result name="success">pages/AlumnoClasificacionProfesor.jsp</result>
         </action>
 
     </package>
