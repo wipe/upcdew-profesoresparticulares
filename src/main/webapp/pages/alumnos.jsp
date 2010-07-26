@@ -44,7 +44,9 @@
           <td height="30">Noticias de interés </td>
         </tr>
         <tr>
-          <td>Visiblement pas impressionnés par le déploiement de navires de guerre israéliens   au large de Gaza, six des sept navires qui mouillaient non loin de Chypre ont   pris le départ dimanche après-midi pour l'enclave palestinienne, a annoncé un   membre de Free Gaza, l'organisme à l'origine de la mission. Leur cargaison de   10.000 tonnes comprendrait notamment 100 maisons préfabriquées, 500 fauteuils   roulants électriques et de l'équipement médical, selon les participants. Cinq   parlementaires (d'Irlande, d'Italie, de Suède, de Norvège et de Bulgarie)   figurent aussi parmi les passagers, selon Audrey Bomse, conseillère juridique de   Free Gazasi les bateaux refusent de rebrousser chemin, de les arraisonner et les diriger   vers le port israélien d'Ashdod, au sud de Tel-Aviv, avant d'interpeller les   militants et de les renvoyer dans leur pays. Selon Tsahal, la cargaison sera   ensuite transférée à Gaza </td>
+          <td>El grupo de Profesores Particulares te da la bienvenida y agradece tu elección. Este site ha sido creado para beneficiar tanto a  profesores como alumnos que en sus tiempos libres desean dictar y reforzar, respectivamente, algunos temas de interes común. &nbsp;
+              Además, permite a los profesores programar sus horarios de dictado de clases según el tiempo que ellos disponga y a los alumnos ver los horarios disponibles segun el curso que elijan.&nbsp;
+              Los profesores podran programar el curso, horario y lugar a dictar. Los alumnos aparte de separar y recibir una tutoria, podran evaluar y dejar un comentario sobre el profesor con el que tuvo la clase. Así. otros alumnos veran los comentarios dejados antes de separar una tutoria.</td>
         </tr>
       </table>
 	</div>
