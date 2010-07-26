@@ -17,13 +17,13 @@ public class Calificacion {
     private Integer codProfesor;
     private Integer calificacion;
     private String comentario;
-    private Date fecha;
+    private String fecha;
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
