@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pe.edu.upc.dew.profesoresparticulares.service;
 
 import java.util.ArrayList;
@@ -11,13 +10,16 @@ import pe.edu.upc.dew.profesoresparticulares.model.Curso;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 
+public class HorarioServiceImpl implements HorarioService {
 
-public class HorarioServiceImpl implements HorarioService{
-    
     List<Curso> cursos = new ArrayList<Curso>();
     List<Horario> horarios = new ArrayList<Horario>();
+    List<Usuario> listaprofesor = new ArrayList<Usuario>();
+    List<Horario> horarioProfesor = new ArrayList<Horario>();
+    List<Horario> listaHorario = new ArrayList<Horario>();
 
-    public HorarioServiceImpl(){
+
+    public HorarioServiceImpl() {
         Curso curso = new Curso();
         curso.setCodCurso(1);
         curso.setNomCurso("Matematica");
@@ -35,7 +37,7 @@ public class HorarioServiceImpl implements HorarioService{
 
 
         /* Creacion de horarios */
-         System.out.println("Agregando primer horario");
+        System.out.println("Agregando primer horario");
         Horario objHorario1 = new Horario();
         objHorario1.setCodHorario(1);
         objHorario1.setCodProfesor(2);
@@ -58,21 +60,19 @@ public class HorarioServiceImpl implements HorarioService{
         horarioProfesor.add(objHorario2);
     }
 
-    public List<Curso> getCursos(){
+    public List<Curso> getCursos() {
         return cursos;
     }
 
     public List<Horario> registrarHorario() {
-        Horario horario = new Horario();        
+        Horario horario = new Horario();
         return horarios;
     }
 
-    public void registrarHorario(Horario horario){
+    public void registrarHorario(Horario horario) {
         horarios.add(horario);
     }
-
-
-    private List<Horario> horarioProfesor = new ArrayList<Horario>();
+    
 
     public List<Horario> getHorarioProfesor(int codProfesor) {
 
@@ -80,28 +80,46 @@ public class HorarioServiceImpl implements HorarioService{
 
         for (Horario horas : horarioProfesor) {
 
-             System.out.println("codigo profesor :" +codProfesor);
-            if (horas.getCodProfesor() == codProfesor  ){
+            System.out.println("codigo profesor :" + codProfesor);
+            if (horas.getCodProfesor() == codProfesor) {
                 lista.add(horas);
                 System.out.println("Hora :" + horas.getHora());
             }
 
         }
-          return lista;
-      }
-
-    public List<Usuario> getUsuarioProfesores() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return lista;
     }
 
+    public List<Usuario> getProfesorAlumno(int codAlumno) {
+        listaprofesor = new ArrayList<Usuario>();
+        Usuario usuario = null;
+        System.out.println("Profesores de alumno " +  codAlumno );
+        for (Horario horas : horarioProfesor) {
+            if (horas.getCodAlumno() == codAlumno) {
+                if (!existeProfesor(horas.getCodProfesor()))  {
+                    usuario = new Usuario();
+                    usuario.setCodUsuario(horas.getCodProfesor());
+                    listaprofesor.add(usuario);
+                }
+            }
+        }
+        return listaprofesor;
+    }
+
+    private boolean existeProfesor(int codProfesor){
+        for (Usuario profesor : listaprofesor){
+            if (profesor.getCodUsuario() == codProfesor) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
      public List<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha) {
-
-         List<Horario> listaHorario = getHorarioProfesor(codProfesor);
-
          List<Horario> listaHorarioDisponibles =  new ArrayList<Horario>();
-
           for (Horario horas : listaHorario) {
-
               System.out.println(horas.getFecha() + " fecha de la clase");
               System.out.println(fecha + " fecha String");
 

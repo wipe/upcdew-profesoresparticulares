@@ -21,9 +21,13 @@ public interface HorarioService {
     public void registrarHorario(Horario horario);
 
 
-    public List<Usuario> getUsuarioProfesores() ;
     public List<Horario> getHorarioProfesor(int codProfesor) ;
+
+    public List<Usuario> getProfesorAlumno(int codAlumno) ;
+
+
     public List<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha);
     public void reservarHorario(Integer codHora, Integer codAlumno);
+
 
 }
