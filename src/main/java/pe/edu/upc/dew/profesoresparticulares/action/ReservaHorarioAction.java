@@ -5,16 +5,28 @@
 
 package pe.edu.upc.dew.profesoresparticulares.action;
 
+import java.util.List;
+import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.service.HorarioService;
 
-/**
- *
- * @author DUOTRABAJO
- */
+
 public class ReservaHorarioAction  extends BaseAction{
 
-    private String profesor;
+    private Integer profesor;
     private String dia;
+    private String mes;
+    private String anho;
+
+    private Integer codHorarioReserva;
+
+    public Integer getCodHorarioReserva() {
+        return codHorarioReserva;
+    }
+
+    public void setCodHorarioReserva(Integer codHorarioReserva) {
+        this.codHorarioReserva = codHorarioReserva;
+    }
+
 
     public String getDia() {
         return dia;
@@ -23,10 +35,6 @@ public class ReservaHorarioAction  extends BaseAction{
     public void setDia(String dia) {
         this.dia = dia;
     }
-
-
-    private String mes;
-    private String anho;
 
     public String getAnho() {
         return anho;
@@ -45,14 +53,13 @@ public class ReservaHorarioAction  extends BaseAction{
     }
 
 
-    public String getProfesor() {
+    public Integer getProfesor() {
         return profesor;
     }
 
-    public void setProfesor(String profesor) {
+    public void setProfesor(Integer profesor) {
         this.profesor = profesor;
     }
-
 
     private HorarioService service;
 
@@ -68,10 +75,24 @@ public class ReservaHorarioAction  extends BaseAction{
     public String  buscarHorarioDisponibleProfesor(){
 
         System.out.println(anho + "-" + mes + "-" + dia + " fecha");
-
         System.out.println(profesor + " profesor buscarHorarioDisponibleProfesor");
 
+         List<Horario> registrarHorario;
+
+         registrarHorario = service.getProfesorHorarioDisponibles( profesor ,anho + "-" + mes + "-" + dia);
+
+          System.out.println("horarios disponibles " + registrarHorario.size());
+
+          getRequest().setAttribute("horariosDisponibles", registrarHorario);
+
         return SUCCESS;
+    }
+
+    public String reservarHorario(){
+        System.out.println("Action Reservando usuario codigo de horario" + codHorarioReserva);
+
+        return SUCCESS;
+
     }
 
 }

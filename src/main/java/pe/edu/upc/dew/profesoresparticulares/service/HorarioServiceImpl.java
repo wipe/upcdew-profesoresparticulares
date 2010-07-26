@@ -41,18 +41,18 @@ public class HorarioServiceImpl implements HorarioService{
         objHorario1.setCodProfesor(2);
         objHorario1.setHora("1");
         objHorario1.setLugar("UPC");
-        objHorario1.setFecha("01-06-2010");
+        objHorario1.setFecha("2010-06-01");
         objHorario1.setCodAlumno(0);
         objHorario1.setNombreAlumno("");
         horarioProfesor.add(objHorario1);
 
-         System.out.println("Agregando segundo horario");
+        System.out.println("Agregando segundo horario");
         Horario objHorario2 = new Horario();
         objHorario2.setCodHorario(2);
         objHorario2.setCodProfesor(2);
         objHorario2.setHora("2");
         objHorario2.setLugar("Cibertec");
-        objHorario2.setFecha("01-06-2010");
+        objHorario2.setFecha("2010-06-01");
         objHorario2.setCodAlumno(1);
         objHorario2.setNombreAlumno("Luis Kina");
         horarioProfesor.add(objHorario2);
@@ -101,15 +101,26 @@ public class HorarioServiceImpl implements HorarioService{
          List<Horario> listaHorarioDisponibles =  new ArrayList<Horario>();
 
           for (Horario horas : listaHorario) {
-                if (horas.getCodAlumno() == null  ){
-                    listaHorarioDisponibles.add(horas);
+
+              System.out.println(horas.getFecha() + " fecha de la clase");
+              System.out.println(fecha + " fecha String");
+
+                if (horas.getCodAlumno() == null || horas.getCodAlumno() == 0 ){
+
+                    if (horas.getFecha().equals(fecha)){
+                         listaHorarioDisponibles.add(horas);
+                    }
+                   
                 }
           }
 
-          System.out.println("horarios disponibles" + listaHorarioDisponibles.size());
-
+         
           return listaHorarioDisponibles;
         
+     }
+
+     public void reservarHorario(Integer codHora, Integer codAlumno){
+          System.out.println("metodo Reservar");
      }
 
 
