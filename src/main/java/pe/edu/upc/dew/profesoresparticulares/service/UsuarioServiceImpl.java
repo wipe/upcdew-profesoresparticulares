@@ -91,6 +91,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         for (Usuario usuario : usuarios) {
             if (usuario.getCodUsuario() == codUsuario ){
                 usuariodatos = usuario;
+                break;
             }
         }
         return usuariodatos;

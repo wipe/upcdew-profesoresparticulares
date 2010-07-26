@@ -50,7 +50,7 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
         int codAlumno = alumno.getCodUsuario();
         List<Usuario> profesores = horarioService.getProfesorAlumno(codAlumno);
         for (Usuario usuario : profesores) {
-            usuario = (Usuario) usuarioService.getUsuario(usuario.getCodUsuario());
+            usuario = usuarioService.getUsuario(usuario.getCodUsuario());
         }
 
         for (Usuario usuario : profesores) {
