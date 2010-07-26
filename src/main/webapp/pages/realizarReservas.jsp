@@ -10,12 +10,21 @@
 <%@ page import="java.util.*"%>
 <%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Usuario"%>
 <%@ page import="pe.edu.upc.dew.profesoresparticulares.service.UsuarioServiceImpl"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Horario"%>
 
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+ <%List<Horario> horarioDisponible = new ArrayList();%>
 
 <%UsuarioServiceImpl objUsusarioImpl = new UsuarioServiceImpl();%>
 
 <%List<Usuario> profesores = (List<Usuario>) objUsusarioImpl.getUsuarioProfesores();%>
+
+<%
+    if (request.getAttribute("horariosDisponibles") != null){
+        horarioDisponible = (List<Horario>)request.getAttribute("horariosDisponibles");
+        out.print(horarioDisponible.size() + " HORARIO");
+    }
+%>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -75,7 +84,6 @@
                      <%for(int i=0; i<profesores.size(); i++){%>
                         <option value= <%= profesores.get(i).getCodUsuario()%> >  <%= profesores.get(i).getNomUsuario()%> &nbsp;  <%= profesores.get(i).getApePaterno()%> </option>
                      <% }%>
-
              
                 </select>
           </td>
@@ -163,14 +171,46 @@
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
+
+</s:form>
+
+<s:form action="reservaHorarioDisponible">
+        <table width="500" border="1" align="center">
+
+                <tr>
+                    <td><strong>Codigo Horario</strong></td>
+                    <td><strong>Fecha</strong></td>
+                    <td><strong>Hora</strong></td>
+                    <td><strong>Lugar</strong></td>
+                    <td><strong>Alumno</strong></td>
+                </tr>
+
+
+             <%for(int i=0; i< horarioDisponible.size(); i++){%>
+                     <li class="" >
+
+                         <%String color; %>
+                         <%if(((Horario)horarioDisponible.get(i)).getNombreAlumno().equals("")){
+                             color = "#FFFFFF";
+                         }
+                         else {
+                             color = "#00FFFF";
+                         }
+                         %>
+
+                     <tr bgcolor=<%= color %>
+                        <td> <%=((Horario)horarioDisponible.get(i)).getCodHorario()%> </td>
+                        <td><%=((Horario)horarioDisponible.get(i)).getFecha()%></td>
+                        <td><%=((Horario)horarioDisponible.get(i)).getHora()%></td>
+                        <td><%=((Horario)horarioDisponible.get(i)).getLugar()%></td>
+                        <td> <input type="submit" name="submit" value=Reservar  id=  <%=((Horario)horarioDisponible.get(i)).getCodHorario()%> /></td>
+                        </tr>
+                    </li>
+                <% }%>
+              </table>
+    </s:form>
         </tr>
+
       </table>
 	</div>
 	</div>
@@ -179,5 +219,5 @@
 	<!-- end #footer -->
 </body>
 
-</s:form>
+
 </html>
