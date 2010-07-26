@@ -39,6 +39,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarios.add(user);
 
         System.out.println(usuarios.size() +"oooooooooooooooooooooooooooooooooooooo");
+        //System.out.print("tamaño "+ usuarios.get .size());
     }
 
    public Usuario getUsuario(String mail, String password) {
@@ -56,6 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService {
      public List<Usuario> getUsuarioProfesores() {
 
          List<Usuario> UsuarioProfesor = new ArrayList() ;
+
         for (Usuario usuario : usuarios) {
 
             if (usuario.getTipoUsuario().equals("profesor")){
@@ -64,13 +66,14 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
         System.out.println(UsuarioProfesor.size() +" cantidad de profesores");
 
+        System.out.print("tamaño 1 "+UsuarioProfesor.size());
         return  UsuarioProfesor;
 
     }
 
      public List<Usuario> getUsuarioAlumnos() {
 
-         List<Usuario> UsuarioAlumnos = null;
+         List<Usuario> UsuarioAlumnos = new ArrayList() ;
         for (Usuario usuario : usuarios) {
 
             if (usuario.getTipoUsuario().equals("alumno")){
@@ -81,6 +84,19 @@ public class UsuarioServiceImpl implements UsuarioService {
         return  UsuarioAlumnos;
 
     }
+
+    public Usuario getUsuario(int codUsuario){
+        Usuario usuariodatos = new Usuario();
+
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCodUsuario() == codUsuario ){
+                usuariodatos = usuario;
+            }
+        }
+        return usuariodatos;
+    }
+
+   
 
 
 
