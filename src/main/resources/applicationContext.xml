@@ -13,6 +13,8 @@
 
     <bean id="horarioService" class="pe.edu.upc.dew.profesoresparticulares.service.HorarioServiceImpl" />
     <bean id="loginService" class="pe.edu.upc.dew.profesoresparticulares.service.LoginServiceImpl" />
+    <bean id="usuarioService" class="pe.edu.upc.dew.profesoresparticulares.service.UsuarioServiceImpl" />
+    <bean id="alumnoCalificacionProfesorService" class="pe.edu.upc.dew.profesoresparticulares.service.AlumnoCalificacionProfesorServiceImpl" />
 
 
 <!--    <bean id="entityManagerFactory"
@@ -52,10 +54,18 @@
         <constructor-arg ref="horarioService" />
     </bean>
 
+    <bean id="alumnoCalificacionProfesorAction" scope="prototype"
+        class="pe.edu.upc.dew.profesoresparticulares.action.AlumnoCalificacionProfesorAction">
+        <constructor-arg ref="horarioService" />
+        <constructor-arg ref="usuarioService" />
+        <constructor-arg ref="alumnoCalificacionProfesorService" />
+    </bean>
+
      <bean id="reservaHorarioAction" scope="prototype"
         class="pe.edu.upc.dew.profesoresparticulares.action.ReservaHorarioAction">
         <constructor-arg ref="horarioService" />
     </bean>
+
 
   
 
