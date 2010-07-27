@@ -88,7 +88,7 @@
                                 <td><table width="200" border="0">
                                         <tr>
                                             <td>Dia</td>
-                                            <td><select name="dia" size="1">
+                                            <td><select name="dia">
                                                     <option value="00"></option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
@@ -166,7 +166,7 @@
                             
 
                             <%if (horarioDisponible != null && horarioDisponible.size() > 0) {%>
-                            
+                            <s:form action="reservaHorarioDisponible">
                             <table width="500" border="1" align="center">
 
                                 <tr>
@@ -178,24 +178,24 @@
                                 </tr>
 
                                 <%for (Horario h : horarioDisponible) {
-                                String color = "";
+                               /* String color = "";
                                 if (h.getNomAlumno().equals("")) {
                                     color = "#FFFFFF";
                                 } else {
                                     color = "#00FFFF";
-                                }
+                                }*/
                                 %>
 
-                             <%--   <tr bgcolor="<%=color%>">
+                                <tr bgcolor="#FFFFFF">
                                     <td> <%=h.getCodHorario()%></td>
                                     <td><%=h.getFecha()%></td>
-                                    <td><%=h.getHora()%></td>
+                                    <td><%=h.getDescHora()%></td>
                                     <td><%=h.getLugar()%></td>
-                                    <td> <input type="submit" name="submit" value=Reservar  id="<%=h.getCodHorario()%>" /></td>
-                                </tr>--%>
-                                <% }%>
+                                    <td><input type="submit" name="submit" value=Reservar  id="<%=h.getCodHorario()%>" /></td>
+                                </tr>
+                             <% }%>
                             </table>
-                        
+                            </s:form>
                         <%}%>
                         </tr>
 
