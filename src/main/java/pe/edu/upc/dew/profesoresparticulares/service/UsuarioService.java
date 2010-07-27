@@ -4,7 +4,7 @@
  */
 package pe.edu.upc.dew.profesoresparticulares.service;
 
-import java.util.List;
+import java.util.ArrayList;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 
 /**
@@ -13,9 +13,9 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
  */
 public interface UsuarioService {
 
-    public List<Usuario> getUsuarioProfesores();
+    public ArrayList<Usuario> getUsuarioProfesores();
 
-    public List<Usuario> getUsuarioAlumnos();
+    public ArrayList<Usuario> getUsuarioAlumnos();
 
     public Usuario getUsuario(String mail, String password);
 

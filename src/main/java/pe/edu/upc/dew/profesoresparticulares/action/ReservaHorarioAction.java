@@ -5,19 +5,55 @@
 
 package pe.edu.upc.dew.profesoresparticulares.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
+import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
+import pe.edu.upc.dew.profesoresparticulares.service.CursoService;
+import pe.edu.upc.dew.profesoresparticulares.service.HoraService;
 import pe.edu.upc.dew.profesoresparticulares.service.HorarioService;
+import pe.edu.upc.dew.profesoresparticulares.service.UsuarioService;
 
 
 public class ReservaHorarioAction  extends BaseAction{
 
-    private Integer profesor;
+    private String profesor;
     private String dia;
     private String mes;
     private String anho;
 
     private Integer codHorarioReserva;
+
+    private ArrayList<Usuario> profesoresList;
+
+    public ArrayList<Usuario> getProfesoresList() {
+        return profesoresList;
+    }
+
+    public void setProfesoresList(ArrayList<Usuario> profesoresList) {
+        this.profesoresList = profesoresList;
+    }
+
+    private HorarioService horarioService;
+    private CursoService cursoService;
+    private HoraService horaService;
+    private UsuarioService usuarioService;
+
+    public void setCursoService(CursoService cursoService) {
+        this.cursoService = cursoService;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    public void setHoraService(HoraService horaService) {
+        this.horaService = horaService;
+    }
+
+    public void setHorarioService(HorarioService horarioService) {
+        this.horarioService = horarioService;
+    }
 
     public Integer getCodHorarioReserva() {
         return codHorarioReserva;
@@ -53,38 +89,19 @@ public class ReservaHorarioAction  extends BaseAction{
     }
 
 
-    public Integer getProfesor() {
+    public String getProfesor() {
         return profesor;
     }
 
-    public void setProfesor(Integer profesor) {
+    public void setProfesor(String profesor) {
         this.profesor = profesor;
     }
 
-    private HorarioService service;
-
-    public void setService(HorarioService service) {
-        this.service = service;
-    }
-
-    public ReservaHorarioAction(HorarioService horarioService) {
-        this.service = horarioService;
-    }
-
-
     public String  buscarHorarioDisponibleProfesor(){
-
-        System.out.println(anho + "-" + mes + "-" + dia + " fecha");
-        System.out.println(profesor + " profesor buscarHorarioDisponibleProfesor");
-
-         List<Horario> registrarHorario;
-
-         registrarHorario = service.getProfesorHorarioDisponibles( profesor ,anho + "-" + mes + "-" + dia);
-
-          System.out.println("horarios disponibles " + registrarHorario.size());
-
-          getRequest().setAttribute("horariosDisponibles", registrarHorario);
-
+        List<Horario> registrarHorario = new ArrayList<Horario>();
+        registrarHorario = horarioService.getProfesorHorarioDisponibles(profesor, dia, mes, anho);
+        System.out.println("horarios encontrados:"+registrarHorario.size());
+        getRequest().setAttribute("horariosDisponibles", registrarHorario);
         return SUCCESS;
     }
 
@@ -93,6 +110,11 @@ public class ReservaHorarioAction  extends BaseAction{
 
         return SUCCESS;
 
+    }
+
+    public String inicio(){
+        profesoresList = usuarioService.getUsuarioProfesores();
+        return SUCCESS;
     }
 
 }

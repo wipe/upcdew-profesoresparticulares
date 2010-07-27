@@ -6,7 +6,6 @@
 package pe.edu.upc.dew.profesoresparticulares.service;
 
 import java.util.ArrayList;
-import java.util.List;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 /**
  *
@@ -14,11 +13,11 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
  */
 public class UsuarioServiceImpl implements UsuarioService {
 
-    private List<Usuario> usuarios = new ArrayList<Usuario>();
+    private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
 
     public UsuarioServiceImpl(){
-         Usuario user = new Usuario();
+        Usuario user = new Usuario();
         user.setCodUsuario(1);
         user.setMail("alumno@upc.com");
         user.setApePaterno("Rojas");
@@ -38,8 +37,6 @@ public class UsuarioServiceImpl implements UsuarioService {
         user.setTipoUsuario("profesor");
         usuarios.add(user);
 
-        System.out.println(usuarios.size() +"oooooooooooooooooooooooooooooooooooooo");
-        //System.out.print("tamaño "+ usuarios.get .size());
     }
 
    public Usuario getUsuario(String mail, String password) {
@@ -54,9 +51,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         return null;
     }
 
-     public List<Usuario> getUsuarioProfesores() {
+     public ArrayList<Usuario> getUsuarioProfesores() {
 
-         List<Usuario> UsuarioProfesor = new ArrayList() ;
+         ArrayList<Usuario> UsuarioProfesor = new ArrayList() ;
 
         for (Usuario usuario : usuarios) {
 
@@ -64,16 +61,14 @@ public class UsuarioServiceImpl implements UsuarioService {
                 UsuarioProfesor.add(usuario);
             }
         }
-        System.out.println(UsuarioProfesor.size() +" cantidad de profesores");
-
-        System.out.print("tamaño 1 "+UsuarioProfesor.size());
+        
         return  UsuarioProfesor;
 
     }
 
-     public List<Usuario> getUsuarioAlumnos() {
+     public ArrayList<Usuario> getUsuarioAlumnos() {
 
-         List<Usuario> UsuarioAlumnos = new ArrayList() ;
+         ArrayList<Usuario> UsuarioAlumnos = new ArrayList() ;
         for (Usuario usuario : usuarios) {
 
             if (usuario.getTipoUsuario().equals("alumno")){

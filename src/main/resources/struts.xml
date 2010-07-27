@@ -101,9 +101,9 @@
             <result>pages/alumnos.jsp</result>
         </action>
 
-        <action name="PaginaRealizarReservasAlumno">
+        <action name="PaginaRealizarReservasAlumno" class="reservaHorarioAction" method="inicio">
             <interceptor-ref name="autorizacionStack"/>
-            <result>pages/realizarReservas.jsp</result>
+            <result name="success">pages/realizarReservas.jsp</result>
         </action>
 
         <action name="PaginaConsultaReservasAlumno">
