@@ -191,7 +191,7 @@
                                     <td><%=h.getFecha()%></td>
                                     <td><%=h.getDescHora()%></td>
                                     <td><%=h.getLugar()%></td>
-                                    <td><input type="submit" name="submit" value=Reservar  id="<%=h.getCodHorario()%>" /></td>
+                                    <td><input type="submit" name="submit" value="Reservar"  id="<%=h.getCodHorario()%>" /></td>
                                 </tr>
                              <% }%>
                             </table>
