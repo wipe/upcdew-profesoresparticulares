@@ -11,19 +11,22 @@ package pe.edu.upc.dew.profesoresparticulares.model;
  */
 public class Hora {
 
-    private String clave;
+    private int clave;
     private String descripcion;
 
-    public Hora(String clave, String descripcion) {
+    public Hora() {
+    }
+
+    public Hora(int clave, String descripcion) {
         this.clave = clave;
         this.descripcion = descripcion;
     }
 
-    public String getClave() {
+    public int getClave() {
         return clave;
     }
 
-    public void setClave(String clave) {
+    public void setClave(int clave) {
         this.clave = clave;
     }
 

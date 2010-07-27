@@ -190,7 +190,7 @@
                      <li class="" >
 
                          <%String color; %>
-                         <%if(((Horario)horarioDisponible.get(i)).getNombreAlumno().equals("")){
+                         <%if(((Horario)horarioDisponible.get(i)).getNomAlumno().equals("")){
                              color = "#FFFFFF";
                          }
                          else {

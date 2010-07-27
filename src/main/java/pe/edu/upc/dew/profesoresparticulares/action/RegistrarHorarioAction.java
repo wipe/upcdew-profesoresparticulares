@@ -6,16 +6,23 @@
 package pe.edu.upc.dew.profesoresparticulares.action;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import pe.edu.upc.dew.profesoresparticulares.model.Curso;
 import pe.edu.upc.dew.profesoresparticulares.model.Hora;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
+import pe.edu.upc.dew.profesoresparticulares.service.CursoService;
+import pe.edu.upc.dew.profesoresparticulares.service.HoraService;
 import pe.edu.upc.dew.profesoresparticulares.service.HorarioService;
+import pe.edu.upc.dew.profesoresparticulares.service.UsuarioService;
 import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
 
 /**
  *
  * @author Wilder
  */
+
 public class RegistrarHorarioAction extends BaseAction{
 
     private String curso;
@@ -28,62 +35,110 @@ public class RegistrarHorarioAction extends BaseAction{
 
     private ArrayList<Hora> horaList;
     private ArrayList<Hora> horasList;
+    private ArrayList<Curso> cursos;
+    
 
-    private HorarioService service;
-
-    public void setService(HorarioService service) {
-        this.service = service;
+    public ArrayList<Curso> getCursos() {
+        return cursos;
     }
 
-    public RegistrarHorarioAction(HorarioService horarioService) {
-        this.service = horarioService;
+    public void setCursos(ArrayList<Curso> cursos) {
+        this.cursos = cursos;
+    }
+
+    private HorarioService horarioService;
+    private CursoService cursoService;
+    private HoraService horaService;
+    private UsuarioService usuarioService;
+
+    public void setCursoService(CursoService cursoService) {
+        this.cursoService = cursoService;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    public void setHoraService(HoraService horaService) {
+        this.horaService = horaService;
+    }
+
+    public void setHorarioService(HorarioService horarioService) {
+        this.horarioService = horarioService;
     }
 
     public String inicio(){
-        setRequest(Constantes.CURSOS, service.getCursos());
-        setRequest(Constantes.HORARIO, new ArrayList<Horario>());
-        horaList = new ArrayList<Hora>();
-        horaList.add(new Hora("1","08:00"));
+        cursos =  cursoService.getCursos();
+        horaList = horaService.getHoras();
 
         horasList = new ArrayList<Hora>();
-        horasList.add(new Hora("1","1"));
+        horasList.add(new Hora(1,"1"));
+        horasList.add(new Hora(2,"2"));
+        horasList.add(new Hora(3,"3"));
+        horasList.add(new Hora(4,"4"));
+
+        setRequest(Constantes.HORARIO, new ArrayList<Horario>());
         
         return SUCCESS;
     }
 
     public String registrarHorario(){
+        cursos =  cursoService.getCursos();
+         horaList = horaService.getHoras();
+
+        horasList = new ArrayList<Hora>();
+        horasList.add(new Hora(1,"1"));
+        horasList.add(new Hora(2,"2"));
+        horasList.add(new Hora(3,"3"));
+        horasList.add(new Hora(4,"4"));
+        
         Horario horario = null;
+        ArrayList<Horario> horarios = new ArrayList<Horario>();
         Usuario usuario = (Usuario)getSession().getAttribute(Constantes.USUARIO);
 
-        System.out.println(fecha);
-        System.out.println(":"+hora+":");
-        System.out.println(":"+horas+":");
+        System.out.println(horas);
 
-
-
-        int i = 0;
-        /*while(i<=getHoras()){
+        int i = Integer.parseInt(horas);
+        int horaInicio = Integer.parseInt(hora);
+        for(int o=0; o<i; o++){
             horario = new Horario();
-            horario.setCodCurso(getCurso());
+            GregorianCalendar d = new GregorianCalendar();
+            horario.setCodHorario(d.getTimeInMillis());
+            
+            horario.setCodCurso(Integer.parseInt(curso));
+            horario.setNomCurso(cursoService.getCurso(Integer.parseInt(curso)).getNomCurso());
+
             horario.setFecha(fecha);
             horario.setLugar(lugar);
             horario.setCosto(Integer.parseInt(costo));
-            horario.setHora(hora);
+
+            horario.setHora(horaInicio);
+            horario.setDescHora(horaService.getHora(horaInicio).getDescripcion());
+
             horario.setCodProfesor(usuario.getCodUsuario());
-            service.registrarHorario(horario);
-            i++;
-        }*/
+            horario.setNomProfesor(usuario.toString());
+
+            if(horarioService.getHorario(horario)==null){
+                horarioService.registrarHorario(horario);
+            }else{
+                LOG.error("horario duplicado");
+            }
+            if(horaInicio+i>24){
+                break;
+            }
+            horaInicio++;
+            horarios.add(horario);
+        }
         
-        setRequest(Constantes.CURSOS, service.getCursos());
-        setRequest(Constantes.HORARIO, horario);
+        setRequest(Constantes.CURSOS, cursoService.getCursos());
+        setRequest(Constantes.HORARIO, horarios);
         return SUCCESS;
     }
 
     public String borrarHorario(){
-        System.out.println("ntra a borrar");
         return SUCCESS;
     }
-
+    
     public String getCosto() {
         return costo;
     }
@@ -92,8 +147,8 @@ public class RegistrarHorarioAction extends BaseAction{
         this.costo = costo;
     }
 
-    public Integer getCurso() {
-        return Integer.parseInt(curso);
+    public String getCurso() {
+        return curso;
     }
 
     public void setCurso(String curso) {

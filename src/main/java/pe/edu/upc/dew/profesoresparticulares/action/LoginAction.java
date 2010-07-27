@@ -43,7 +43,7 @@ public class LoginAction extends BaseAction{
             System.out.println("Cargando horarios");
 
             HorarioServiceImpl controladorHorario = new HorarioServiceImpl();
-            List<Horario> objHorarios = new  ArrayList<Horario>();
+            ArrayList<Horario> objHorarios = new  ArrayList<Horario>();
                System.out.println(user.getCodUsuario() + " codigo de profesor" );
             objHorarios = controladorHorario.getHorarioProfesor(user.getCodUsuario());
 

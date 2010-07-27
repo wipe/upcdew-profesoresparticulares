@@ -99,7 +99,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
-                            <td><input type="submit" name="grabar" value="Grabar" ></td>
+                            <td><input type="submit" name="grabar" value="Grabar"/></td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
@@ -142,7 +142,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
-                            <td><label></input>
+                            <td><label>
                                     <!-- <input type="button" value="Salir" onClick="window.location = 'principal.jsp';"> -->
 
                                 </label></td>

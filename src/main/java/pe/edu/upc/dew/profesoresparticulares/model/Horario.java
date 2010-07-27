@@ -11,16 +11,25 @@ package pe.edu.upc.dew.profesoresparticulares.model;
  */
 public class Horario {
 
-    private Integer codHorario;
-    private Integer codProfesor;
-    private Integer codAlumno;
-    private String fecha;
-    private String hora;
-    private String lugar;
-    private Integer codCurso;
-    private Integer costo;
+    private Long codHorario;
 
-    private String nombreAlumno;
+    private Integer codProfesor;
+    private String nomProfesor;
+
+    private Integer codAlumno;
+    private String nomAlumno = "";
+
+    private String fecha;
+
+    private Integer hora;
+    private String descHora;
+
+    private String lugar;
+
+    private Integer codCurso;
+    private String nomCurso;
+
+    private Integer costo;
 
 
     public Horario(){
@@ -35,19 +44,19 @@ public class Horario {
         this.codAlumno = codAlumno;
     }
 
-    public String getHora() {
+    public Integer getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Integer hora) {
         this.hora = hora;
     }
 
-    public Integer getCodHorario() {
+    public Long getCodHorario() {
         return codHorario;
     }
 
-    public void setCodHorario(Integer codHorario) {
+    public void setCodHorario(Long codHorario) {
         this.codHorario = codHorario;
     }
 
@@ -75,14 +84,6 @@ public class Horario {
         this.lugar = lugar;
     }
 
-     public String getNombreAlumno() {
-        return nombreAlumno;
-    }
-
-    public void setNombreAlumno(String nombreAlumno) {
-        this.nombreAlumno = nombreAlumno;
-    }
-
     public Integer getCodCurso() {
         return codCurso;
     }
@@ -97,6 +98,38 @@ public class Horario {
 
     public void setCosto(Integer costo) {
         this.costo = costo;
+    }
+
+    public String getDescHora() {
+        return descHora;
+    }
+
+    public void setDescHora(String descHora) {
+        this.descHora = descHora;
+    }
+
+    public String getNomAlumno() {
+        return nomAlumno;
+    }
+
+    public void setNomAlumno(String nomAlumno) {
+        this.nomAlumno = nomAlumno;
+    }
+
+    public String getNomCurso() {
+        return nomCurso;
+    }
+
+    public void setNomCurso(String nomCurso) {
+        this.nomCurso = nomCurso;
+    }
+
+    public String getNomProfesor() {
+        return nomProfesor;
+    }
+
+    public void setNomProfesor(String nomProfesor) {
+        this.nomProfesor = nomProfesor;
     }
 
 

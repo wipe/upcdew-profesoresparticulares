@@ -5,6 +5,7 @@
 <struts>
     <constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.them" value="simple" />
     
     <package name="base" extends="struts-default">
 
@@ -84,9 +85,9 @@
             <result name="success">pages/registroHorario.jsp</result>
         </action>
 
-        <action name="PaginaConsultaHorarioProfesor">
+        <action name="PaginaConsultaHorarioProfesor" class="consultarHorarioProfesorAction" method="inicio" >
             <interceptor-ref name="autorizacionStack"/>
-            <result>pages/ConsultaHorarioProfesor.jsp</result>
+            <result name="success">pages/ConsultaHorarioProfesor.jsp</result>
         </action>
 
         <action name="PaginaPerfilProfesor">

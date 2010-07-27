@@ -1,4 +1,4 @@
-<%-- 
+ <%--
     Document   : registroHorario
     Created on : 04/06/2010, 11:39:31 AM
     Author     : lkina
@@ -33,7 +33,7 @@
 <%--<form name="horario" action="<%=request.getContextPath()%>/registrarHorario.action"
       method="post">--%>
 
-    <s:form action="registrarHorario">
+<s:form action="registrarHorario">
 
 <table style="float: left; margin: 0 1em 1em 0"><tr><td>
 <div id="calendar-container"></div>
@@ -54,7 +54,7 @@ Calendar.setup({
             date = Calendar.printDate(date, "%A, %B %d, %Y");
             $("calendar-info").innerHTML = date;
         } else {
-            
+
         }
     },
     onTimeChange  : function(cal) {
@@ -84,7 +84,7 @@ Calendar.setup({
 
 		</ul>
 	</div>
-                    
+
 	<!-- end #menu -->
 	<div id="page">
 	<div id="page-bgtop">
@@ -96,12 +96,9 @@ Calendar.setup({
           <td width="177">&nbsp;</td>
         </tr>
         <tr>
-          <td height="35"><strong>Curso</strong></td>
-          <td><select name="curso">
-                  <%for(int i=0; i<cursos.size(); i++){%>
-                    <option value="<%=((Curso)cursos.get(i)).getNomCurso()%>"><%=((Curso)cursos.get(i)).getNomCurso()%></option>
-                  <% }%>
-              </select>
+          <%--<td height="35"><strong>Curso</strong></td>--%>
+          <td>
+              <s:select name="curso" list="cursos" listKey="codCurso" listValue="nomCurso" label="Curso"/>
           </td>
           </tr>
           <tr>
@@ -118,7 +115,7 @@ Calendar.setup({
           </table></td>
           <td>&nbsp;</td>
         </tr>
-        
+
         <tr>
           <td height="17"><strong>Lugar</strong></td>
           <td><label>
@@ -132,34 +129,41 @@ Calendar.setup({
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><strong>Hora Inicio</strong></td>
-          <td><s:select name="hora" list="horaList" listKey="clave" listValue="descripcion"/>
+          <%--<td><strong>Hora Inicio</strong></td>--%>
+          <td><s:select name="hora" list="horaList" listKey="clave" listValue="descripcion" label="Hora Inicio"/>
           </td>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><strong>Horas</strong></td>
-          <td><s:select name="horas" list="horasList" listKey="clave" listValue="descripcion"/>
+          <%--<td><strong>Horas</strong></td>--%>
+          <td><s:select name="horas" list="horasList" listKey="clave" listValue="descripcion" label="Horas"/>
           </td>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td><s:submit value="Grabar"/>
-              <input name="submit2" type="button" id="submit" value="Borrar" /></td>          
-          <td>&nbsp;</td>
+          <%--<td>&nbsp;</td>--%>
+          <%--<td>--%>
+              <s:submit value="Grabar"/>
+              <%--<input name="submit2" type="button" id="submit" value="Borrar" /></td>--%>
+          <%--<td>&nbsp;</td>--%>
         </tr>
         <tr>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
         </tr>
-      </table>              
+        <tr>
+            <td><s:actionerror /></td>
+         <td><s:fielderror /></td>
+        </tr>
+      </table>
               <script>//<![CDATA[
 Calendar.setup({ trigger: "calendar-trigger", inputField: "fecha" });
 //]]></script>
 
-             <table>
+        <%if(horarios!=null&&horarios.size()>0){%>
+
+        <table border="1" cellspacing="1" cellpadding="1">
                  <thead>
                  <th>Curso</th>
                  <th>Fecha</th>
@@ -170,15 +174,16 @@ Calendar.setup({ trigger: "calendar-trigger", inputField: "fecha" });
                  <tbody>
                      <%for(Horario horario : horarios){%>
                      <tr id="patron">
-                         <td id="curso"><%=horario.getCodCurso()%></td>
-                         <td id="fecha"></td>
-                         <td id="lugar"></td>
-                         <td id="costo"></td>
-                         <td id="horas"></td>
+                         <td id="curso"><%=horario.getNomCurso()%></td>
+                         <td id="fecha"><%=horario.getFecha()%></td>
+                         <td id="lugar"><%=horario.getLugar()%></td>
+                         <td id="costo"><%=horario.getCosto()%></td>
+                         <td id="horas"><%=horario.getDescHora()%></td>
                      </tr>
                      <%}%>
                  </tbody>
              </table>
+        <%}%>
 
 	</div>
 	</div>
