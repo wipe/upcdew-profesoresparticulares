@@ -17,7 +17,7 @@ public class Horario {
     private String nomProfesor;
 
     private Integer codAlumno;
-    private String nomAlumno = "";
+    private String nomAlumno;
 
     private String fecha;
 
