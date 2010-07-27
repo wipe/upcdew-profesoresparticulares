@@ -119,7 +119,7 @@ public class HorarioServiceImpl implements HorarioService {
 
      public List<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha) {
          List<Horario> listaHorarioDisponibles =  new ArrayList<Horario>();
-          for (Horario horas : listaHorario) {
+          for (Horario horas : horarioProfesor) {
               System.out.println(horas.getFecha() + " fecha de la clase");
               System.out.println(fecha + " fecha String");
 
