@@ -1,8 +1,4 @@
-<%-- 
-    Document   : AlumnoConsultaReservas
-    Created on : 16/06/2010, 12:14:50 PM
-    Author     : DUOTRABAJO
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -10,11 +6,11 @@
 <%@ page import="java.util.*"%>
 <%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Horario"%>
 <%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Usuario"%>
-<%@ page import="import pe.edu.upc.dew.profesoresparticulares.util.Constantes"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.util.Constantes"%>
 
 
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
-<%ArrayList<Horario> horariosProfesor = (ArrayList<Horario>) request.getAttribute("horariosProfesor");%>
+<%ArrayList<Horario> horariosProfesor = (ArrayList<Horario>) request.getAttribute("horariosReservados");%>
 <%Usuario objUsuario = (Usuario)request.getSession().getAttribute(Constantes.USUARIO);%>
 
 
@@ -43,9 +39,30 @@
 	</div>
 	<!-- end #menu -->
 	<div id="page">
-             <table width="500" border="1">
-
+             <table width="500" border="0" align="center">
+              <tr>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
                 <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+             </table>
+
+            <table width="500" border="1" align="center">
+
+                 <tr>
                     <td><strong>Codigo Horario</strong></td>
                     <td><strong>Fecha</strong></td>
                     <td><strong>Hora</strong></td>
@@ -53,9 +70,8 @@
 
                 </tr>
 
-
-                <%for(Horario h : horariosProfesor){%>
-                    <%if (h.getCodAlumno()==objUsuario.getCodUsuario()) {%>
+                  <%for(Horario h : horariosProfesor){%>
+                    <%if (h.getCodAlumno()== objUsuario.getCodUsuario()) {%>
 
                         <tr>
                             <td> <%=h.getCodHorario()%></td>

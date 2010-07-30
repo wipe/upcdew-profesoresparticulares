@@ -82,4 +82,13 @@
         <property name="usuarioService" ref="usuarioService"/>
     </bean>
 
+    <bean id="alumnoConsultaHorarioAction"
+        class="pe.edu.upc.dew.profesoresparticulares.action.AlumnoConsultaHorarioAction">
+        <property name="horarioService" ref="horarioService"/>
+        <property name="cursoService" ref="cursoService"/>
+        <property name="horaService" ref="horaService"/>
+        <property name="usuarioService" ref="usuarioService"/>
+    </bean>
+
+
 </beans>

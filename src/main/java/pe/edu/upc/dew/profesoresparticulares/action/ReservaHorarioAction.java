@@ -115,7 +115,14 @@ public class ReservaHorarioAction  extends BaseAction{
        List<Horario> registrarHorario = horarioService.reservarHorario(codHorarioReserva, objUsuario.getCodUsuario(),objUsuario.getNomUsuario() + " " + objUsuario.getApePaterno());
 
        getRequest().removeAttribute(Constantes.HORARIO);
+
+
        setRequest(Constantes.HORARIO, registrarHorario);
+
+
+       setRequest("horariosProfesor", registrarHorario);
+       getRequest().setAttribute("horariosProfesor", registrarHorario);
+
 
        return SUCCESS;
 

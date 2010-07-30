@@ -64,7 +64,7 @@ public class HorarioServiceImpl implements HorarioService {
         return cursos;
     }
 
-    public ArrayList<Horario> registrarHorario() {
+    public ArrayList<Horario> getregistroHorario() {
         Horario horario = new Horario();
         return horarios;
     }

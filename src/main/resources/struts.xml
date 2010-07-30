@@ -85,6 +85,7 @@
             <result name="success">pages/registroHorario.jsp</result>
         </action>
 
+      
         <action name="PaginaConsultaHorarioProfesor" class="consultarHorarioProfesorAction" method="inicio" >
             <interceptor-ref name="autorizacionStack"/>
             <result name="success">pages/ConsultaHorarioProfesor.jsp</result>
@@ -106,7 +107,7 @@
             <result name="success">pages/realizarReservas.jsp</result>
         </action>
 
-        <action name="PaginaConsultaReservasAlumno">
+        <action name="PaginaConsultaReservasAlumno" class="alumnoConsultaHorarioAction" method="inicio" >
             <interceptor-ref name="autorizacionStack"/>
             <result>pages/alumnoConsultaReservas.jsp</result>
         </action>

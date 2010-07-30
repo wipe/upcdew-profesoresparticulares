@@ -17,7 +17,7 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 public interface HorarioService {
 
     public ArrayList<Curso> getCursos();
-    public ArrayList<Horario> registrarHorario();
+    public ArrayList<Horario> getregistroHorario();
 
     public void registrarHorario(Horario horario);
 
