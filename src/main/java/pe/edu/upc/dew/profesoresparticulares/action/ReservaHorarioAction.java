@@ -13,6 +13,7 @@ import pe.edu.upc.dew.profesoresparticulares.service.CursoService;
 import pe.edu.upc.dew.profesoresparticulares.service.HoraService;
 import pe.edu.upc.dew.profesoresparticulares.service.HorarioService;
 import pe.edu.upc.dew.profesoresparticulares.service.UsuarioService;
+import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
 
 
 public class ReservaHorarioAction  extends BaseAction{
@@ -22,7 +23,7 @@ public class ReservaHorarioAction  extends BaseAction{
     private String mes;
     private String anho;
 
-    private Integer codHorarioReserva;
+    private Long codHorarioReserva;
 
     private ArrayList<Usuario> profesoresList;
 
@@ -55,11 +56,11 @@ public class ReservaHorarioAction  extends BaseAction{
         this.horarioService = horarioService;
     }
 
-    public Integer getCodHorarioReserva() {
+    public Long getCodHorarioReserva() {
         return codHorarioReserva;
     }
 
-    public void setCodHorarioReserva(Integer codHorarioReserva) {
+    public void setCodHorarioReserva(Long codHorarioReserva) {
         this.codHorarioReserva = codHorarioReserva;
     }
 
@@ -101,12 +102,17 @@ public class ReservaHorarioAction  extends BaseAction{
         List<Horario> registrarHorario = new ArrayList<Horario>();
         registrarHorario = horarioService.getProfesorHorarioDisponibles(profesor, dia, mes, anho);
         System.out.println("horarios encontrados:"+registrarHorario.size());
+        System.out.println(" Action buscarHorarioDisponibleProfesor");
         getRequest().setAttribute("horariosDisponibles", registrarHorario);
         return SUCCESS;
     }
 
     public String reservarHorario(){
-        System.out.println("Action Reservando usuario codigo de horario" + codHorarioReserva);
+        System.out.println("Action Reservando usuario codigo de horario " + codHorarioReserva);
+
+         Usuario objUsuario= (Usuario)getSession().getAttribute(Constantes.USUARIO);
+
+        horarioService.reservarHorario(codHorarioReserva, objUsuario.getCodUsuario());
 
         return SUCCESS;
 

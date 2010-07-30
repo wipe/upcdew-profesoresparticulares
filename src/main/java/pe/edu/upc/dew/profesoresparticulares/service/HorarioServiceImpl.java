@@ -18,6 +18,7 @@ public class HorarioServiceImpl implements HorarioService {
     ArrayList<Horario> horarioProfesor = new ArrayList<Horario>();
     ArrayList<Horario> listaHorario = new ArrayList<Horario>();
 
+
     public HorarioServiceImpl() {
         Curso curso = new Curso();
         curso.setCodCurso(1);
@@ -134,8 +135,16 @@ public class HorarioServiceImpl implements HorarioService {
 
     }
 
-    public void reservarHorario(Integer codHora, Integer codAlumno) {
+    public void reservarHorario(Long codHora, Integer codAlumno) {
         System.out.println("metodo Reservar");
+          for (Horario h : horarios) {
+
+              if(h.getCodHorario() == codHora  ){
+                  h.setCodAlumno(codAlumno);
+              }
+
+          }
+
     }
 
     public Horario getHorario(Horario hor) {

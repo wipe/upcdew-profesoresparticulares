@@ -8,7 +8,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.util.*"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Horario"%>
+<%@ page import="pe.edu.upc.dew.profesoresparticulares.model.Usuario"%>
+<%@ page import="import pe.edu.upc.dew.profesoresparticulares.util.Constantes"%>
+
+
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
+<%ArrayList<Horario> horariosProfesor = (ArrayList<Horario>) request.getAttribute("horariosProfesor");%>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,6 +42,18 @@
 	</div>
 	<!-- end #menu -->
 	<div id="page">
+             <table width="500" border="1">
+
+                <tr>
+                    <td><strong>Codigo Horario</strong></td>
+                    <td><strong>Fecha</strong></td>
+                    <td><strong>Hora</strong></td>
+                    <td><strong>Lugar</strong></td>
+
+                </tr>
+
+            </table>
+
 	<div id="page-bgtop">
 	<div id="page-bgbtm"></div>
 	</div>

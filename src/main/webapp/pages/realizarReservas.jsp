@@ -89,7 +89,7 @@
                                         <tr>
                                             <td>Dia</td>
                                             <td><select name="dia">
-                                                    <option value="00"></option>
+                                                
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
                                                     <option value="03">3</option>
@@ -163,7 +163,7 @@
                             </tr>
                             <tr>
 
-                            
+                            </s:form>
 
                             <%if (horarioDisponible != null && horarioDisponible.size() > 0) {%>
                             <s:form action="reservaHorarioDisponible">
@@ -191,9 +191,16 @@
                                     <td><%=h.getFecha()%></td>
                                     <td><%=h.getDescHora()%></td>
                                     <td><%=h.getLugar()%></td>
-                                    <td><input type="submit" name="submit" value="Reservar"  id="<%=h.getCodHorario()%>" /></td>
+                                    <td><input type="radio" name="codHorarioReserva" value= <%=h.getCodHorario()%> /></td>
                                 </tr>
                              <% }%>
+                            </table>
+                             <table width="500" border="0" align="center">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><input type="submit" name="Reservar" value="Reservar"   align="center"/></td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
                             </table>
                             </s:form>
                         <%}%>
@@ -205,7 +212,7 @@
             <!-- end #page -->
         </div>
         <!-- end #footer -->
-        </s:form>
+        
     </body>
 
 </html>
