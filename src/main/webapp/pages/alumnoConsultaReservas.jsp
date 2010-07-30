@@ -64,6 +64,7 @@
 
                  <tr>
                     <td><strong>Codigo Horario</strong></td>
+                    <td><strong>Profesor</strong></td>
                     <td><strong>Fecha</strong></td>
                     <td><strong>Hora</strong></td>
                     <td><strong>Lugar</strong></td>
@@ -74,7 +75,8 @@
                     <%if (h.getCodAlumno()== objUsuario.getCodUsuario()) {%>
 
                         <tr>
-                            <td> <%=h.getCodHorario()%></td>
+                             <td><%=h.getCodHorario()%></td>
+                             <td><%=h.getNomProfesor()%></td>
                              <td><%=h.getFecha()%></td>
                              <td><%=h.getDescHora()%></td>
                              <td><%=h.getLugar()%></td>
