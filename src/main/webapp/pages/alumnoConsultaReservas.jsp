@@ -15,6 +15,7 @@
 
 <%List<Map> menus = (List<Map>)request.getSession().getAttribute("MENU");%>
 <%ArrayList<Horario> horariosProfesor = (ArrayList<Horario>) request.getAttribute("horariosProfesor");%>
+<%Usuario objUsuario = (Usuario)request.getSession().getAttribute(Constantes.USUARIO);%>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,6 +52,19 @@
                     <td><strong>Lugar</strong></td>
 
                 </tr>
+
+
+                <%for(Horario h : horariosProfesor){%>
+                    <%if (h.getCodAlumno()==objUsuario.getCodUsuario()) {%>
+
+                        <tr>
+                            <td> <%=h.getCodHorario()%></td>
+                             <td><%=h.getFecha()%></td>
+                             <td><%=h.getDescHora()%></td>
+                             <td><%=h.getLugar()%></td>
+                        </tr>
+                    <% }%>
+                <% }%>
 
             </table>
 
