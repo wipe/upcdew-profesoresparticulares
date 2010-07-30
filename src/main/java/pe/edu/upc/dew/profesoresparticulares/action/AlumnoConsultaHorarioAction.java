@@ -14,34 +14,26 @@ import pe.edu.upc.dew.profesoresparticulares.service.HorarioService;
 import pe.edu.upc.dew.profesoresparticulares.service.UsuarioService;
 import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
 
-/**
- *
- * @author DUOTRABAJO
- */
-
 
 public class AlumnoConsultaHorarioAction extends BaseAction{
 
     private HorarioService horarioService;
-    private CursoService cursoService;
-    private HoraService horaService;
-    private UsuarioService usuarioService;
+    private Long codHorarioReserva;
 
-    public void setCursoService(CursoService cursoService) {
-        this.cursoService = cursoService;
+    public Long getCodHorarioReserva() {
+        return codHorarioReserva;
     }
 
-    public void setHoraService(HoraService horaService) {
-        this.horaService = horaService;
+    public void setCodHorarioReserva(Long codHorarioReserva) {
+        this.codHorarioReserva = codHorarioReserva;
     }
+
 
     public void setHorarioService(HorarioService horarioService) {
         this.horarioService = horarioService;
     }
 
-    public void setUsuarioService(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+
 
 
     public String inicio(){
@@ -53,5 +45,11 @@ public class AlumnoConsultaHorarioAction extends BaseAction{
 
         return SUCCESS;
     }
+
+     public String borrarReserva(){
+          System.out.println("Action borrando Reserva " + codHorarioReserva);
+
+          return SUCCESS;
+     }
 
 }
