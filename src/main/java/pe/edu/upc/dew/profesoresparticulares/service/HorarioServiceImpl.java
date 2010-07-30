@@ -36,7 +36,7 @@ public class HorarioServiceImpl implements HorarioService {
         cursos.add(curso);
 
 
-        /* Creacion de horarios */
+        /* Creacion de horarios 
         System.out.println("Agregando primer horario");
         Horario objHorario1 = new Horario();
         objHorario1.setCodHorario(1L);
@@ -57,7 +57,7 @@ public class HorarioServiceImpl implements HorarioService {
         objHorario2.setFecha("2010-06-01");
         objHorario2.setCodAlumno(1);
         objHorario2.setNomAlumno("Luis Kina");
-        horarioProfesor.add(objHorario2);
+        horarioProfesor.add(objHorario2);*/
     }
 
     public ArrayList<Curso> getCursos() {
@@ -135,16 +135,18 @@ public class HorarioServiceImpl implements HorarioService {
 
     }
 
-    public void reservarHorario(Long codHora, Integer codAlumno) {
+    public List<Horario> reservarHorario(Long codHora, Integer codAlumno, String nombreAlumno) {
         System.out.println("metodo Reservar");
-          for (Horario h : horarios) {
 
-              if(h.getCodHorario() == codHora  ){
-                  h.setCodAlumno(codAlumno);
+          for (int i = 0; i < horarios.size(); i++){
+                 if(horarios.get(i).getCodHorario().compareTo(codHora)==0 ){
+                    horarios.get(i).setCodAlumno(codAlumno);
+                    horarios.get(i).setNomAlumno(nombreAlumno);
+                    System.out.println("horario reservado codAlumno: " + codAlumno + " CodHora : "  + codHora );
               }
-
           }
 
+          return horarios;
     }
 
     public Horario getHorario(Horario hor) {
@@ -184,7 +186,10 @@ public class HorarioServiceImpl implements HorarioService {
                     if (dia.equals(horario.getFecha().substring(8, 10))) {
                         if (anho.equals(horario.getFecha().substring(0, 4))) {
                             if (mes.equals(horario.getFecha().substring(5, 7))) {
-                                horDisp.add(horario);
+                                if(horario.getCodAlumno()==null || horario.getCodAlumno().equals("")){
+                                    horDisp.add(horario);
+                                }
+                                
                             }
                         }
                     }

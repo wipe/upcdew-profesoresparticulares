@@ -132,6 +132,7 @@ public class RegistrarHorarioAction extends BaseAction{
         
         setRequest(Constantes.CURSOS, cursoService.getCursos());
         setRequest(Constantes.HORARIO, horarios);
+
         return SUCCESS;
     }
 

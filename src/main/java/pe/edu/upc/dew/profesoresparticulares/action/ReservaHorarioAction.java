@@ -108,13 +108,16 @@ public class ReservaHorarioAction  extends BaseAction{
     }
 
     public String reservarHorario(){
-        System.out.println("Action Reservando usuario codigo de horario " + codHorarioReserva);
+       System.out.println("Action Reservando usuario codigo de horario " + codHorarioReserva);
 
-         Usuario objUsuario= (Usuario)getSession().getAttribute(Constantes.USUARIO);
+       Usuario objUsuario= (Usuario)getSession().getAttribute(Constantes.USUARIO);
 
-        horarioService.reservarHorario(codHorarioReserva, objUsuario.getCodUsuario());
+       List<Horario> registrarHorario = horarioService.reservarHorario(codHorarioReserva, objUsuario.getCodUsuario(),objUsuario.getNomUsuario() + " " + objUsuario.getApePaterno());
 
-        return SUCCESS;
+       getRequest().removeAttribute(Constantes.HORARIO);
+       setRequest(Constantes.HORARIO, registrarHorario);
+
+       return SUCCESS;
 
     }
 
