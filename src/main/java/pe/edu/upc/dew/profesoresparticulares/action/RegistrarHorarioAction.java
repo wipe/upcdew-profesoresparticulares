@@ -103,7 +103,7 @@ public class RegistrarHorarioAction extends BaseAction{
         for(int o=0; o<i; o++){
             horario = new Horario();
             GregorianCalendar d = new GregorianCalendar();
-            horario.setCodHorario(d.getTimeInMillis());
+            horario.setCodHorario(d.getTimeInMillis()+o);
             
             horario.setCodCurso(Integer.parseInt(curso));
             horario.setNomCurso(cursoService.getCurso(Integer.parseInt(curso)).getNomCurso());
