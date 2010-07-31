@@ -6,7 +6,7 @@
 package pe.edu.upc.dew.profesoresparticulares.action;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import pe.edu.upc.dew.profesoresparticulares.model.Calificacion;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
@@ -25,6 +25,15 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
     private UsuarioService usuarioService;
     private HorarioService horarioService;
     private ArrayList<Usuario> profesoresList;
+    private ArrayList<HashMap<String, String>> listaCalificaciones;
+
+    public ArrayList<HashMap<String, String>> getListaCalificaciones() {
+        return listaCalificaciones;
+    }
+
+    public void setListaCalificaciones(ArrayList<HashMap<String, String>> listaCalificaciones) {
+        this.listaCalificaciones = listaCalificaciones;
+    }
 
     private String profesor;
     private String comentario;
@@ -94,7 +103,6 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
     }
 
     public String inicio(){
-        System.out.println("ntra a inicio de alumno calificacion profesor");
         Usuario alumno = (Usuario)getSession().getAttribute(Constantes.USUARIO);
         int codAlumno = alumno.getCodUsuario();
         ArrayList<Horario> horarios = horarioService.getProfesorAlumno(codAlumno);
@@ -102,6 +110,18 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
         for (Horario horario : horarios) {
             profesoresList.add(usuarioService.getUsuario(horario.getCodProfesor()));
         }
+
+        listaCalificaciones = new ArrayList<HashMap<String, String>>();
+
+        HashMap<String, String> xx = new HashMap<String, String>();
+        xx.put("key", "1");
+        listaCalificaciones.add(xx);
+        xx = new HashMap<String, String>();
+        xx.put("key", "2");
+        listaCalificaciones.add(xx);
+        xx = new HashMap<String, String>();
+        xx.put("key", "3");
+        listaCalificaciones.add(xx);
         
         return SUCCESS;
     }
