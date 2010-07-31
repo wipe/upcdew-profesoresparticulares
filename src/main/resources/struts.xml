@@ -120,6 +120,11 @@
             <result name="success">pages/AlumnoClasificacionProfesor.jsp</result>
         </action>
 
+        <action name="calificarProfesor" class="alumnoCalificacionProfesorAction" method="calificarProfesor">
+            <interceptor-ref name="autorizacionStack"/>
+            <result name="success">pages/AlumnoClasificacionProfesor.jsp</result>
+        </action>
+
     </package>
 
 </struts>

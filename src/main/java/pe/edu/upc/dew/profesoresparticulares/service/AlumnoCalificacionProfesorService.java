@@ -5,9 +5,9 @@
 
 package pe.edu.upc.dew.profesoresparticulares.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import pe.edu.upc.dew.profesoresparticulares.model.Calificacion;
-import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 
 /**
  *
@@ -16,9 +16,9 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 public interface AlumnoCalificacionProfesorService {
 
     //public List<Usuario> getUsuarioProfesores() ;
-    public void registrarCalificacion(Integer codAlumno, Integer codProfesor,String fecha, Integer calificacion, String comentario);
-    public List<Calificacion> listaCalificacionesAlumno(Integer codAlumno);
-    public List<Calificacion> listaCalificacionesProfesor(Integer codProfesor);
+    public void registrarCalificacion(Calificacion calificacion);
+    public ArrayList<Calificacion> listaCalificacionesAlumno(Integer codAlumno);
+    public ArrayList<Calificacion> listaCalificacionesProfesor(Integer codProfesor);
 
 
 }

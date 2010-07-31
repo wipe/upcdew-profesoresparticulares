@@ -3,7 +3,7 @@
 <%List<Map> menus = (List<Map>) request.getSession().getAttribute("MENU");%>
 <%Usuario usuario = (Usuario) request.getSession().getAttribute("USUARIO");%>
 <%List<Usuario> profesor = (List<Usuario>) request.getAttribute("PROFESORES");%>
-<%List<Calificacion> calificacionAlumno = (List<Calificacion>) request.getAttribute("CALIFICACIONALUMNO");%>
+<%--List<Calificacion> calificacionAlumno = (List<Calificacion>) request.getAttribute("CALIFICACIONALUMNO");--%>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -25,11 +25,9 @@
             }
         </script>
 
-
-
-
     </head>
     <body>
+        <s:form action="calificarProfesor">
         <div id="header">
             <div id="logo">
                 <h1><a href="#">Profesores Particulares   </a></h1>
@@ -86,11 +84,11 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td>Comentario:</td>
-                            <td><form name="form1" method="post" action="">
-                                    <label>
-                                        <textarea name="textarea" cols="70"></textarea>
-                                    </label>
-                                </form>          </td>
+                            <td>
+                                   
+                                        <textarea name="comentario" cols="70"></textarea>
+                                   
+                                       </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
@@ -155,6 +153,7 @@
             <!-- end #page -->
         </div>
         <!-- end #footer -->
+        </s:form>
     </body>
 </html>
 
