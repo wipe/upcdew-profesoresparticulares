@@ -185,8 +185,10 @@ public class HorarioServiceImpl implements HorarioService {
                     if (anho.equals(horario.getFecha().substring(0, 4))) {
                         if (mes.equals(horario.getFecha().substring(5, 7))) {
                              System.out.println("añade");
-                            horDisp.add(horario);
-                        }
+                              if(horario.getCodAlumno()==null || horario.getCodAlumno().equals("")){
+                                   horDisp.add(horario);
+                              }
+                                                   }
                     }
                 } else {
                     if (dia.equals(horario.getFecha().substring(8, 10))) {

@@ -98,7 +98,7 @@
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <td>
-                                 <input type="submit" name="BorrarHorario" value="Borrar Horario" />
+                                <input type="button" name="BorrarHorario" value="Borrar Horario" onclick="prueba()" />
                             </td>
                             <td>&nbsp;</td>
                  </table>
@@ -112,4 +112,21 @@
 </div>
 	<!-- end #footer -->
 </body>
+
+<SCRIPT language="JavaScript">
+
+function prueba() {
+if (confirm('¿Estás que deseas cancelar la reserva?')){
+    document.forms[0].submit();
+    return true;
+    }
+
+}
+
+
+</SCRIPT>
+
+
 </html>
+
+
