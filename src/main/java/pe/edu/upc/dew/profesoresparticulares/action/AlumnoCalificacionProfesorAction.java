@@ -106,7 +106,6 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
         return SUCCESS;
     }
     public String calificarProfesor(){
-        
         Usuario alumno = (Usuario)getSession().getAttribute(Constantes.USUARIO);
         int codAlumno = alumno.getCodUsuario();
         ArrayList<Horario> horarios = horarioService.getProfesorAlumno(codAlumno);
@@ -129,7 +128,5 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
         
         return SUCCESS;
     }
-
-
 
 }

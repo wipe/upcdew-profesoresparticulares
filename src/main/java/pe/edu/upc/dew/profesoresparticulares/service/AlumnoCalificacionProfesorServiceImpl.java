@@ -28,6 +28,7 @@ public class AlumnoCalificacionProfesorServiceImpl implements AlumnoCalificacion
          ArrayList<Calificacion> _calificaciones = new ArrayList<Calificacion>();
 
         for (Calificacion _c : calificaciones) {
+            System.out.println(":"+_c.getCodAlumno());
             if (_c.getCodAlumno()!= null && _c.getCodAlumno() == codAlumno  ){
                 _calificaciones.add(_c);
             }

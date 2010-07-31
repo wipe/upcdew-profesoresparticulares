@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*,pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>) request.getSession().getAttribute("MENU");%>
 <%Usuario usuario = (Usuario) request.getSession().getAttribute("USUARIO");%>
@@ -124,9 +125,9 @@
                             </tr>
                             <c:forEach var="calificacion" items="${calificacionAlumno}">
                                 <tr class= "EtiquetaForm" >
-                                    <td>${calificacion.fecha}</td>
-                                    <td>${calificacion.codprofesor}</td>
-                                    <td>${calificacion.calificacion}</td>
+                                    <%--<td>${calificacion.fecha}</td>--%>
+                                    <%--<td>${calificacion.codprofesor}</td>
+                                    <td>${calificacion.calificacion}</td>--%>
                                     <td>${calificacion.comentario}</td>
                                 </tr>
                             </c:forEach>
