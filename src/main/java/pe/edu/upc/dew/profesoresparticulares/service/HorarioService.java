@@ -13,7 +13,7 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 /**
  * 
  * @author Wilder
- */
+     */
 public interface HorarioService {
 
     public ArrayList<Curso> getCursos();
@@ -31,6 +31,8 @@ public interface HorarioService {
     public List<Horario> reservarHorario(Long codHora, Integer codAlumno, String nombreAlumno);
 
     public Horario getHorario(Horario horario);
+
+     public void cancelarReserva(Long codReserva);
 
     public List<Horario> getProfesorHorarioDisponibles(String dia, String mes, String anho);
     public List<Horario> getProfesorHorarioDisponibles(String profesor, String dia, String mes, String anho);

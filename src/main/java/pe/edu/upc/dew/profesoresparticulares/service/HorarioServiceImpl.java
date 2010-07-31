@@ -63,6 +63,17 @@ public class HorarioServiceImpl implements HorarioService {
         return cursos;
     }
 
+    public void cancelarReserva(Long codReserva){
+
+           for (int i = 0; i < horarios.size(); i++){
+                if (horarios.get(i).getCodHorario().equals(codReserva) ){
+                    horarios.get(i).setCodAlumno(null);
+                    horarios.get(i).setNomAlumno(null);
+                }
+           }
+           
+    }
+
     public ArrayList<Horario> getregistroHorario() {
         Horario horario = new Horario();
         return horarios;

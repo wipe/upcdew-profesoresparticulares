@@ -27,6 +27,11 @@ public class AlumnoConsultaHorarioAction extends BaseAction{
     public Long getCodHorarioReserva() {
         return codHorarioReserva;
     }
+
+    public void setCodHorarioReserva(Long codHorarioReserva) {
+        this.codHorarioReserva = codHorarioReserva;
+    }
+
     public void setCursoService(CursoService cursoService) {
         this.cursoService = cursoService;
     }
@@ -57,7 +62,13 @@ public class AlumnoConsultaHorarioAction extends BaseAction{
     }
 
      public String borrarReserva(){
-          System.out.println("Action borrando Reserva " + codHorarioReserva);
+
+        horarioService.cancelarReserva(codHorarioReserva);
+        ArrayList<Horario> horarios = horarioService.getregistroHorario();
+        getRequest().setAttribute("horariosReservados", horarios);
+
+
+       System.out.println("Action borrando Reserva " + codHorarioReserva);
 
           return SUCCESS;
      }
