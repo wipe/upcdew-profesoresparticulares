@@ -19,15 +19,25 @@ public class AlumnoConsultaHorarioAction extends BaseAction{
 
     private HorarioService horarioService;
     private Long codHorarioReserva;
+    private CursoService cursoService;
+    private HoraService horaService;
+    private UsuarioService usuarioService;
+
 
     public Long getCodHorarioReserva() {
         return codHorarioReserva;
     }
-
-    public void setCodHorarioReserva(Long codHorarioReserva) {
-        this.codHorarioReserva = codHorarioReserva;
+    public void setCursoService(CursoService cursoService) {
+        this.cursoService = cursoService;
     }
 
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    public void setHoraService(HoraService horaService) {
+        this.horaService = horaService;
+    }
 
     public void setHorarioService(HorarioService horarioService) {
         this.horarioService = horarioService;

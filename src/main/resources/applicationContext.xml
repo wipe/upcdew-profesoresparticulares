@@ -18,7 +18,7 @@
     <bean id="usuarioService" class="pe.edu.upc.dew.profesoresparticulares.service.UsuarioServiceImpl" />
     <bean id="alumnoCalificacionProfesorService" class="pe.edu.upc.dew.profesoresparticulares.service.AlumnoCalificacionProfesorServiceImpl" />
 
- 
+
 <!--    <bean id="entityManagerFactory"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -58,7 +58,7 @@
         <property name="horaService" ref="horaService"/>
         <property name="usuarioService" ref="usuarioService"/>
     </bean>
-    
+
     <bean id="consultarHorarioProfesorAction"
         class="pe.edu.upc.dew.profesoresparticulares.action.ConsultarHorarioProfesorAction">
         <property name="horarioService" ref="horarioService"/>
@@ -82,13 +82,12 @@
         <property name="usuarioService" ref="usuarioService"/>
     </bean>
 
-    <bean id="alumnoConsultaHorarioAction"
+      <bean id="alumnoConsultaHorarioAction"
         class="pe.edu.upc.dew.profesoresparticulares.action.AlumnoConsultaHorarioAction">
-        <property name="horarioService" ref="horarioService"/>
+       <property name="horarioService" ref="horarioService"/>
         <property name="cursoService" ref="cursoService"/>
         <property name="horaService" ref="horaService"/>
         <property name="usuarioService" ref="usuarioService"/>
     </bean>
-
 
 </beans>
