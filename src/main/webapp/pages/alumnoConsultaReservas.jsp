@@ -1,5 +1,5 @@
 
-
+<%@taglib prefix="s" uri="/struts-tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -60,6 +60,10 @@
                 </tr>
              </table>
 
+        
+
+            <s:form action="cancelarReserva">
+
             <table width="500" border="1" align="center">
 
                  <tr>
@@ -68,6 +72,7 @@
                     <td><strong>Fecha</strong></td>
                     <td><strong>Hora</strong></td>
                     <td><strong>Lugar</strong></td>
+                     <td></td>
 
                 </tr>
 
@@ -80,11 +85,25 @@
                              <td><%=h.getFecha()%></td>
                              <td><%=h.getDescHora()%></td>
                              <td><%=h.getLugar()%></td>
+                             <td><input type="radio" name="codHorarioReserva" value= <%=h.getCodHorario()%> /></td>
                         </tr>
                     <% }%>
                 <% }%>
 
             </table>
+
+
+                <table width="500" border="0" align="center">
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>
+                                 <input type="submit" name="BorrarHorario" value="Borrar Horario" />
+                            </td>
+                            <td>&nbsp;</td>
+                 </table>
+                 
+        </s:form>
 
 	<div id="page-bgtop">
 	<div id="page-bgbtm"></div>

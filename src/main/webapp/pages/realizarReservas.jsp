@@ -65,7 +65,7 @@
                                 <td width="65">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td height="41">&nbsp;</td>
+                               <td height="41">&nbsp;</td>
                                 <td>Seleccione un profesor: </td>
                                 <td>
 
@@ -83,7 +83,7 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td height="30">&nbsp;</td>
+                                <td height="40">&nbsp;</td>
                                 <td>Horario:</td>
                                 <td><table width="200" border="0">
                                         <tr>
