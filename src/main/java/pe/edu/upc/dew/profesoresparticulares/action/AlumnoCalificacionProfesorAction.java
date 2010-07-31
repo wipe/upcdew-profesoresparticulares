@@ -5,7 +5,9 @@
 
 package pe.edu.upc.dew.profesoresparticulares.action;
 
+import java.util.ArrayList;
 import java.util.List;
+import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 import pe.edu.upc.dew.profesoresparticulares.service.AlumnoCalificacionProfesorService;
 import pe.edu.upc.dew.profesoresparticulares.service.HorarioService;
@@ -21,6 +23,23 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
     private AlumnoCalificacionProfesorService alumnoCalificacionservice;
     private UsuarioService usuarioService;
     private HorarioService horarioService;
+    private ArrayList<Usuario> profesoresList;
+
+    public AlumnoCalificacionProfesorService getAlumnoCalificacionservice() {
+        return alumnoCalificacionservice;
+    }
+
+    public void setAlumnoCalificacionservice(AlumnoCalificacionProfesorService alumnoCalificacionservice) {
+        this.alumnoCalificacionservice = alumnoCalificacionservice;
+    }
+
+    public ArrayList<Usuario> getProfesoresList() {
+        return profesoresList;
+    }
+
+    public void setProfesoresList(ArrayList<Usuario> profesoresList) {
+        this.profesoresList = profesoresList;
+    }
 
     public void setAlumnoClasificacionservice(AlumnoCalificacionProfesorService alumnoCalificacionservice) {
         this.alumnoCalificacionservice = alumnoCalificacionservice;
@@ -48,15 +67,11 @@ public class AlumnoCalificacionProfesorAction extends BaseAction {
         System.out.println("ntra a inicio de alumno calificacion profesor");
         Usuario alumno = (Usuario)getSession().getAttribute(Constantes.USUARIO);
         int codAlumno = alumno.getCodUsuario();
-        List<Usuario> profesores = horarioService.getProfesorAlumno(codAlumno);
-        for (Usuario usuario : profesores) {
-            usuario = usuarioService.getUsuario(usuario.getCodUsuario());
+        ArrayList<Horario> horarios = horarioService.getProfesorAlumno(codAlumno);
+        profesoresList = new ArrayList<Usuario>();
+        for (Horario horario : horarios) {
+            profesoresList.add(usuarioService.getUsuario(horario.getCodProfesor()));
         }
-
-        for (Usuario usuario : profesores) {
-            System.out.print("nombre "+usuario.getNomUsuario());
-        }
-
         
         return SUCCESS;
     }

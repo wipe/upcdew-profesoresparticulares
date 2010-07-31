@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page import="java.util.*,pe.edu.upc.dew.profesoresparticulares.model.*"%>
 <%List<Map> menus = (List<Map>) request.getSession().getAttribute("MENU");%>
 <%Usuario usuario = (Usuario) request.getSession().getAttribute("USUARIO");%>
@@ -56,11 +57,7 @@
                             <td width="55" height="30">&nbsp;</td>
                             <td width="76">Profesor</td>
                             <td width="255"><label>
-                                    <select name="cmbProfesores" id="cmbProfesores" onchange="mostrarCalificaciones">
-                                        <option value="1">Juan Perez</option>
-                                        <option value="2">Luis Palma</option>
-
-                                    </select>
+                                    <s:select list="profesoresList" name="profesor" listKey="codUsuario" listValue="nomUsuario"></s:select>
                                 </label></td>
                             <td width="125">&nbsp;</td>
                             <td width="19">&nbsp;</td>

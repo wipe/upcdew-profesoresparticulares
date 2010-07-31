@@ -13,8 +13,7 @@ import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 public class HorarioServiceImpl implements HorarioService {
 
     ArrayList<Curso> cursos = new ArrayList<Curso>();
-    ArrayList<Horario> horarios = new ArrayList<Horario>();
-    ArrayList<Usuario> listaprofesor = new ArrayList<Usuario>();
+    ArrayList<Horario> horarios = new ArrayList<Horario>();    
     ArrayList<Horario> horarioProfesor = new ArrayList<Horario>();
     ArrayList<Horario> listaHorario = new ArrayList<Horario>();
 
@@ -90,25 +89,21 @@ public class HorarioServiceImpl implements HorarioService {
         return lista;
     }
 
-    public ArrayList<Usuario> getProfesorAlumno(int codAlumno) {
-        listaprofesor = new ArrayList<Usuario>();
-        Usuario usuario = null;
-        System.out.println("Profesores de alumno " + codAlumno);
-        for (Horario horas : horarioProfesor) {
-            if (horas.getCodAlumno() == codAlumno) {
-                if (!existeProfesor(horas.getCodProfesor())) {
-                    usuario = new Usuario();
-                    usuario.setCodUsuario(horas.getCodProfesor());
-                    listaprofesor.add(usuario);
+    public ArrayList<Horario> getProfesorAlumno(int codAlumno) {
+        ArrayList<Horario> listaprofesor = new ArrayList<Horario>();
+        for (Horario horario : horarios) {
+            if (horario.getCodAlumno()!=null && horario.getCodAlumno() == codAlumno) {
+                if (!existeProfesor(horario.getCodProfesor(), listaprofesor)) {
+                    listaprofesor.add(horario);
                 }
             }
         }
         return listaprofesor;
     }
 
-    private boolean existeProfesor(int codProfesor) {
-        for (Usuario profesor : listaprofesor) {
-            if (profesor.getCodUsuario() == codProfesor) {
+    private boolean existeProfesor(int codProfesor, ArrayList<Horario> listaprofesor) {
+        for (Horario horario : listaprofesor) {
+            if (horario.getCodProfesor() == codProfesor) {
                 return true;
             }
         }

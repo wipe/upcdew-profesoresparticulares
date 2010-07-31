@@ -24,7 +24,7 @@ public interface HorarioService {
 
     public ArrayList<Horario> getHorarioProfesor(int codProfesor) ;
 
-    public ArrayList<Usuario> getProfesorAlumno(int codAlumno) ;
+    public ArrayList<Horario> getProfesorAlumno(int codAlumno) ;
 
 
     public ArrayList<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha);
