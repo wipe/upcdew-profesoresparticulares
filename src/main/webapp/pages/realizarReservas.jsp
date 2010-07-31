@@ -89,7 +89,7 @@
                                         <tr>
                                             <td>Dia</td>
                                             <td><select name="dia">
-                                                
+                                                    <option value="00"> </option>
                                                     <option value="01">1</option>
                                                     <option value="02">2</option>
                                                     <option value="03">3</option>
