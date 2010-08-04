@@ -7,6 +7,7 @@ package pe.edu.upc.dew.profesoresparticulares.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
 import pe.edu.upc.dew.profesoresparticulares.service.LoginService;
@@ -20,6 +21,8 @@ import pe.edu.upc.dew.profesoresparticulares.util.Constantes;
  */
 public class LoginAction extends BaseAction{
 
+    Logger log = Logger.getLogger(this.getClass());
+
     private String usuario;
     private String password;
 
@@ -30,7 +33,7 @@ public class LoginAction extends BaseAction{
     }
 
     public String login(){
-        System.out.println("inicio");
+        log.debug("inicio");
         Usuario user = service.validaUsuario(usuario, password);
 
         
