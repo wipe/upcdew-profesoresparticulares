@@ -6,6 +6,7 @@ package pe.edu.upc.dew.profesoresparticulares.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import pe.edu.upc.dew.profesoresparticulares.dao.HorarioDao;
 import pe.edu.upc.dew.profesoresparticulares.model.Curso;
 import pe.edu.upc.dew.profesoresparticulares.model.Horario;
 import pe.edu.upc.dew.profesoresparticulares.model.Usuario;
@@ -64,19 +65,21 @@ public class HorarioServiceImpl implements HorarioService {
     }
 
     public void cancelarReserva(Long codReserva){
-
+        /*
            for (int i = 0; i < horarios.size(); i++){
                 if (horarios.get(i).getCodHorario().equals(codReserva) ){
                     horarios.get(i).setCodAlumno(null);
                     horarios.get(i).setNomAlumno(null);
                 }
            }
-           
+          */
+         HorarioDao objHorarioDao = new HorarioDao();
+         objHorarioDao.cancelarReserva(codReserva);
     }
 
     public ArrayList<Horario> getregistroHorario() {
-        Horario horario = new Horario();
-        return horarios;
+        HorarioDao objHorarioDao = new HorarioDao();
+        return  objHorarioDao.getregistroHorario();
     }
 
     public void registrarHorario(Horario horario) {
@@ -85,10 +88,13 @@ public class HorarioServiceImpl implements HorarioService {
     }
 
     public ArrayList<Horario> getHorarioProfesor(int codProfesor) {
+         HorarioDao objHorarioDao = new HorarioDao();
 
-        ArrayList<Horario> lista = new ArrayList<Horario>();
+       ArrayList<Horario> lista = new ArrayList<Horario>();
+       
+        ArrayList<Horario> objListaHorario = objHorarioDao.getregistroHorario();
 
-        for (Horario horas : horarios) {
+        for (Horario horas : objListaHorario) {
 
             System.out.println("codigo profesor :" + codProfesor);
             if (horas.getCodProfesor() == codProfesor) {
@@ -101,8 +107,11 @@ public class HorarioServiceImpl implements HorarioService {
     }
 
     public ArrayList<Horario> getProfesorAlumno(int codAlumno) {
+         HorarioDao objHorarioDao = new HorarioDao();
+        ArrayList<Horario> objListaHorario = objHorarioDao.getregistroHorario();
+
         ArrayList<Horario> listaprofesor = new ArrayList<Horario>();
-        for (Horario horario : horarios) {
+        for (Horario horario : objListaHorario) {
             if (horario.getCodAlumno()!=null && horario.getCodAlumno() == codAlumno) {
                 if (!existeProfesor(horario.getCodProfesor(), listaprofesor)) {
                     listaprofesor.add(horario);
@@ -123,7 +132,11 @@ public class HorarioServiceImpl implements HorarioService {
 
     public ArrayList<Horario> getProfesorHorarioDisponibles(int codProfesor, String fecha) {
         ArrayList<Horario> listaHorarioDisponibles = new ArrayList<Horario>();
-        for (Horario horas : horarioProfesor) {
+
+       HorarioDao objHorarioDao = new HorarioDao();
+        ArrayList<Horario> objListaHorario = objHorarioDao.getregistroHorario();
+
+        for (Horario horas : objListaHorario) {
             System.out.println(horas.getFecha() + " fecha de la clase");
             System.out.println(fecha + " fecha String");
 
@@ -132,7 +145,6 @@ public class HorarioServiceImpl implements HorarioService {
                 if (horas.getFecha().equals(fecha)) {
                     listaHorarioDisponibles.add(horas);
                 }
-
             }
         }
 
@@ -143,7 +155,7 @@ public class HorarioServiceImpl implements HorarioService {
 
     public List<Horario> reservarHorario(Long codHora, Integer codAlumno, String nombreAlumno) {
         System.out.println("metodo Reservar");
-
+     /*
           for (int i = 0; i < horarios.size(); i++){
                  if(horarios.get(i).getCodHorario().compareTo(codHora)==0 ){
                     horarios.get(i).setCodAlumno(codAlumno);
@@ -151,8 +163,12 @@ public class HorarioServiceImpl implements HorarioService {
                     System.out.println("horario reservado codAlumno: " + codAlumno + " CodHora : "  + codHora );
               }
           }
+         */
+          reservarHorario( codHora,  codAlumno,  nombreAlumno);
+          HorarioDao objHorarioDao = new HorarioDao();
+        ArrayList<Horario> objListaHorario = objHorarioDao.getregistroHorario();
 
-          return horarios;
+          return objListaHorario;
     }
 
     public Horario getHorario(Horario hor) {
@@ -176,8 +192,13 @@ public class HorarioServiceImpl implements HorarioService {
         System.out.println(mes);
         System.out.println(anho);
         int prof = Integer.parseInt(profesor);
+
         ArrayList<Horario> horDisp = new ArrayList<Horario>();
-        for (Horario horario : horarios) {
+
+         HorarioDao objHorarioDao = new HorarioDao();
+        ArrayList<Horario> objListaHorario = objHorarioDao.getregistroHorario();
+
+        for (Horario horario : objListaHorario) {
             System.out.println(horario.getFecha().substring(0, 4));
             System.out.println(horario.getFecha().substring(5, 7));
             if (horario.getCodProfesor() == prof) {
@@ -185,7 +206,7 @@ public class HorarioServiceImpl implements HorarioService {
                     if (anho.equals(horario.getFecha().substring(0, 4))) {
                         if (mes.equals(horario.getFecha().substring(5, 7))) {
                              System.out.println("añade");
-                              if(horario.getCodAlumno()==null || horario.getCodAlumno().equals("")){
+                              if(horario.getCodAlumno()==null || horario.getCodAlumno()== 0){
                                    horDisp.add(horario);
                               }
                                                    }
