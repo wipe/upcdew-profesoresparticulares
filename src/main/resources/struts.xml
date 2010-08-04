@@ -36,6 +36,10 @@
             <result name="error">index.jsp</result>
         </global-results>
 
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
         <action name="login" class="loginAction" method="login">
             <result name="success">pages/profesores.jsp</result>
             <result name="error">index.jsp</result>
@@ -51,19 +55,19 @@
             <result name="success">pages/registroHorario.jsp</result>
         </action>
 
-         <action name="buscarHorarioDisponibleProfesor" class="reservaHorarioAction" method="buscarHorarioDisponibleProfesor">
+        <action name="buscarHorarioDisponibleProfesor" class="reservaHorarioAction" method="buscarHorarioDisponibleProfesor">
             <interceptor-ref name="autorizacionStack"/>
             <interceptor-ref name="alumno"/>
             <result name="success">pages/realizarReservas.jsp</result>
         </action>
 
-         <action name="reservaHorarioDisponible" class="reservaHorarioAction" method="reservarHorario">
+        <action name="reservaHorarioDisponible" class="reservaHorarioAction" method="reservarHorario">
             <interceptor-ref name="autorizacionStack"/>
             <interceptor-ref name="alumno"/>
             <result name="success">pages/realizarReservas.jsp</result>
         </action>
 
-         <action name="cancelarReserva" class="alumnoConsultaHorarioAction" method="borrarReserva">
+        <action name="cancelarReserva" class="alumnoConsultaHorarioAction" method="borrarReserva">
             <interceptor-ref name="autorizacionStack"/>
             <interceptor-ref name="alumno"/>
             <result name="success">pages/alumnoConsultaReservas.jsp</result>
