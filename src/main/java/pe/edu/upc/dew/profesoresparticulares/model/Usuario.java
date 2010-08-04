@@ -20,7 +20,8 @@ public class Usuario {
     private String mail;
     private String tipoUsuario;
     private String password;    
-    private Date fecNacimiento;
+    private String fecNacimiento;
+    private Integer codCurso;
 
     public Integer getCodUsuario() {
         return codUsuario;
@@ -46,11 +47,11 @@ public class Usuario {
         this.apePaterno = apePaterno;
     }
 
-    public Date getFecNacimiento() {
+    public String getFecNacimiento() {
         return fecNacimiento;
     }
 
-    public void setFecNacimiento(Date fecNacimiento) {
+    public void setFecNacimiento(String fecNacimiento) {
         this.fecNacimiento = fecNacimiento;
     }
 
@@ -86,6 +87,15 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
+    public Integer getCodCurso() {
+        return codCurso;
+    }
+
+    public void setCodCurso(Integer codCurso) {
+        this.codCurso = codCurso;
+    }
+
+    
     @Override
     public String toString(){
        return getNomUsuario() + " " + getApePaterno();

@@ -6,6 +6,7 @@
 package pe.edu.upc.dew.profesoresparticulares.service;
 
 import java.util.ArrayList;
+import pe.edu.upc.dew.profesoresparticulares.dao.CursoDao;
 import pe.edu.upc.dew.profesoresparticulares.model.Curso;
 
 /**
@@ -38,16 +39,13 @@ public class CursoServiceImpl implements CursoService{
     }
 
     public ArrayList<Curso> getCursos() {
-        return cursos;
+        CursoDao cursoDao = new CursoDao();
+        return cursoDao.getCursos();
     }
 
     public Curso getCurso(Integer codCurso) {
-        for (Curso curso : cursos) {
-            if(curso.getCodCurso()==codCurso){
-                return curso;
-            }
-        }
-        return new Curso();
+       CursoDao cursoDao = new CursoDao();
+        return cursoDao.getCurso(codCurso);
     }
 
 
