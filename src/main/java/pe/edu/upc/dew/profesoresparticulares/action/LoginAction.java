@@ -34,6 +34,8 @@ public class LoginAction extends BaseAction{
 
     public String login(){
         log.debug("inicio");
+        log.info("info desde log4j");
+        log.error("error desde log4j");
         Usuario user = service.validaUsuario(usuario, password);
 
         
