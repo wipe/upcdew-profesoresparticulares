@@ -36,7 +36,7 @@ public class HorarioDao {
            st.executeUpdate(query);
 
         } catch (SQLException e) {
-            throw new IllegalStateException("Error al obtener el usuario", e);
+            throw new IllegalStateException("Error al obtener el usuari", e);
         } finally {
             JdbcUtils.closeStatement(st);
             JdbcUtils.closeConnection(connection);
@@ -48,6 +48,7 @@ public class HorarioDao {
         Connection connection = JdbcUtils.getConnection();
 
         connection = null;
+        
         Statement st = null;
        
 
