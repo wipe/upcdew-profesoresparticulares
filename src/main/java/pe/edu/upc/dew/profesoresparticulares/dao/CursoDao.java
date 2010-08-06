@@ -22,6 +22,7 @@ public class CursoDao {
 
         ArrayList<Curso> cursos = new ArrayList();
         Curso curso = new Curso();
+
         Connection connection = JdbcUtils.getConnection();
 
         connection = null;
